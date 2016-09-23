@@ -30,12 +30,6 @@ $(document).ready(function() {
 		secretFunctionHiddenFromSpammers(docCookies.getItem("ishuman"),true);
 	}
 	
-	if(location.hash==="#tutorinfo")
-	{
-		secretFunctionHiddenFromSpammers("justincase");
-		location.hash="tutoring";
-	}
-	
 	$( "a.button, a.internal" ).each(function(){
 		var that=this;
 		$(that).click(function(event)

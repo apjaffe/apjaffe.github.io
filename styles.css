@@ -98,6 +98,11 @@ div.scrollable
 	-khtml-border-radius: 30px;
 }
 
+img.logo
+{
+  width:200px;
+}
+
 img.app-icon
 {
 	/* Rounded corners again. Isn't this fun? */
