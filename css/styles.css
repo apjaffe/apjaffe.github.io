@@ -7,6 +7,9 @@ p {
 a[href]:visited, a[href] {
   color: #00A;
 }
+a[href].pure-button {
+  color: #000;
+}
 .caption {
   padding-top:0px;
   margin-top:0px;
