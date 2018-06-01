@@ -8,7 +8,7 @@ a[href]:visited, a[href] {
   color: #00A;
 }
 a[href].pure-button {
-  color: #000;
+  color: rgba(0,0,0,.8);
 }
 .caption {
   padding-top:0px;
