@@ -1,0 +1,33 @@
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012036798e27ed5be38e72cbca43b4551341e89e96100b49bc9f2917c2d94d4dad040a",
+      "host": "keybase.io",
+      "kid": "012036798e27ed5be38e72cbca43b4551341e89e96100b49bc9f2917c2d94d4dad040a",
+      "uid": "bdb9be5e9f1d2a834ba34cda88c81e19",
+      "username": "apjaffe"
+    },
+    "merkle_root": {
+      "ctime": 1569799001,
+      "hash": "0399fb057b7acdee10ab3b347609cce28dcd6263cac526e871e693473d1b09f63934b31d7d63f0f6f568a225c04e0558e45b0c75cc417ab652a0c47685fd36fd",
+      "hash_meta": "8c0caac601ce3b8560d5d6ed651fb9aeb9f0f7b0c7d78daa7a00ff79cec8524a",
+      "seqno": 7801797
+    },
+    "service": {
+      "entropy": "th0C0tqvtGooOsmX0uR9XnUs",
+      "hostname": "apjaffe.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.2.2"
+  },
+  "ctime": 1569799017,
+  "expire_in": 504576000,
+  "prev": "e46447ebcab7524b3e21accc99a3379847e8cbadb7f1d66a757c4bb905199abb",
+  "seqno": 7,
+  "tag": "signature"
+}
