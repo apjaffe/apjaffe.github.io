@@ -251,6 +251,30 @@ const CASES = {
       teach:"Separation anxiety disorder can be diagnosed in adults (DSM-5 removed the childhood-only restriction). Key: the fear is specifically about loss of or harm to attachment figures, not public spaces (agoraphobia) or generalized catastrophe (GAD)."
     },
     {
+      id:"easy-adhd-future", date:"2026-07-07", answer:"ADHD, Predominantly Inattentive Presentation",
+      accept:["adhd predominantly inattentive presentation","adhd, predominantly inattentive presentation","adhd inattentive","adhd","attention deficit hyperactivity disorder","add","attention deficit disorder"],
+      clues:[
+        "A 9-year-old girl is referred by her teacher, who describes her as \"in her own world.\" She's quiet, compliant, and polite — but consistently turns in incomplete work and misses instructions.",
+        "She daydreams frequently, loses her belongings daily, and needs instructions repeated multiple times. She can spend an hour on a task that should take ten minutes — not because she's lazy, but because her attention drifts.",
+        "The same patterns appear at home: she starts getting ready for school and gets sidetracked, leaves belongings behind, and forgets what she went to the next room to do. Her parents assumed she'd grow out of it.",
+        "She's bright and articulate. On topics she finds engaging she concentrates intensely. It's sustained, effortful attention that fails her. There is no hyperactivity, no impulsivity, nothing that looks like a behavior problem.",
+        "At least six inattentive symptoms present across both home and school since before age 12 — careless errors, difficulty sustaining attention, seeming not to listen, not finishing tasks, forgetfulness, losing things — causing clear academic impairment, with no significant hyperactive-impulsive symptoms."
+      ],
+      teach:"The predominantly inattentive presentation is frequently missed in quiet, compliant children — especially girls. Without visible disruption, inattention reads as daydreaming or a learning problem. Distinguish from SLD: the difficulty is attentional, not limited to a specific skill domain.",
+    },
+    {
+      id:"easy-delirium", date:"2026-07-08", answer:"Delirium",
+      accept:["delirium","acute confusional state","acute confusion"],
+      clues:[
+        "A 78-year-old is brought to the ER by her daughter, who is alarmed: her mother — normally sharp and independent — has been confused since yesterday morning, picking at the bedsheets and convinced the nurses are strangers trying to harm her.",
+        "The patient alternates between agitation and drowsiness throughout the interview. She cannot follow a simple three-step instruction and loses track of questions mid-sentence. She is disoriented to time and place.",
+        "There is no prior psychiatric history and no known dementia. Her baseline cognitive health was excellent. The symptoms came on overnight — which her daughter emphasizes is completely unlike her mother.",
+        "Lab work reveals a urinary tract infection and mild dehydration. Her daughter mentions she started a new sleep medication last week.",
+        "An acute disturbance in attention and awareness — developing over hours to days, fluctuating throughout the day, representing a clear change from baseline — accompanied by disorientation and incoherent speech, with a direct physiological cause identified."
+      ],
+      teach:"Delirium differs from dementia in its acute onset (hours to days vs. gradual), fluctuating course, and identifiable physiological cause. UTI is a classic precipitant in older adults. Acute behavioral change in an elderly patient should prompt a medical workup before a psychiatric one.",
+    },
+    {
       id:"easy-adhd-child", date:"2026-06-16", answer:"Attention-Deficit/Hyperactivity Disorder",
       accept:["adhd","attention deficit hyperactivity disorder","attention-deficit/hyperactivity disorder","adhd combined presentation","adhd combined","adhd, combined presentation","add"],
       clues:[
@@ -261,6 +285,102 @@ const CASES = {
         "Six or more inattentive symptoms and six or more hyperactive-impulsive symptoms, present across at least two settings (home and school) since before age 12, causing clear academic and social impairment."
       ],
       teach:"ADHD, Combined Presentation requires ≥6 symptoms in both the inattentive and hyperactive-impulsive clusters. Cross-setting presence (home and school) and onset before age 12 are essential criteria, not optional features."
+    },
+    {
+      id:"easy-agoraphobia", date:"2026-07-09", answer:"Agoraphobia",
+      accept:["agoraphobia"],
+      clues:[
+        "A 35-year-old comes in describing months of near-housebound living. 'I feel safer at home,' they say quietly, without volunteering how restricted their world has become.",
+        "They haven't used public transit in six months. Getting to the grocery store requires a family member. Crowded spaces, open plazas, and enclosed venues all feel unbearable.",
+        "What they fear isn't a specific object or person — it's the situation itself: being somewhere they can't easily escape or get help if something goes wrong. Bridges, malls, and movie theaters all trigger the same dread.",
+        "They've had panic attacks in public before and now organize their entire life around avoiding any place where one might occur and they'd be stranded. The avoidance has grown steadily worse.",
+        "Fear and avoidance of at least two situation types — public transit, open spaces, enclosed spaces, crowds, or being outside alone — driven by thoughts that escape or help would be unavailable. Lasting over 6 months with significant impairment. Good insight."
+      ],
+      teach:"Agoraphobia in DSM-5 is a standalone diagnosis, not simply a complication of Panic Disorder. The defining feature is fear across at least two agoraphobic situation types, driven by escape-or-help concerns. Many clients with agoraphobia have never had a full panic attack."
+    },
+    {
+      id:"easy-ocd-washing", date:"2026-07-10", answer:"Obsessive-Compulsive Disorder",
+      accept:["obsessive compulsive disorder","obsessive-compulsive disorder","ocd","obsessive compulsive"],
+      clues:[
+        "A 28-year-old comes in reluctantly. Their hands are cracked and bleeding — they wash over 30 times a day and have tried to stop on their own without success.",
+        "The washing follows contact with anything they consider contaminated: doorknobs, shared surfaces, strangers' hands, a library book. They know others wouldn't see these items as dangerous.",
+        "Not washing feels intolerable — as though something terrible will happen to them or someone they love. The relief after washing lasts only minutes before the urge returns.",
+        "The rituals follow strict rules: a set number of sequences in a specific order. Losing count requires starting over. They've started avoiding the office bathroom to escape situations that would trigger the sequence.",
+        "Recurrent contamination obsessions relieved only by compulsive washing rituals — recognized as excessive, governed by rigid rules, consuming more than an hour daily, causing significant distress and occupational impairment. Good insight."
+      ],
+      teach:"The most widely recognized OCD presentation. Egodystonic obsessions (intrusive and recognized as excessive) plus compulsions that temporarily neutralize anxiety but reinforce the cycle long-term. The rituals follow internal rules — they're not random repetition — and provide only brief relief."
+    },
+    {
+      id:"easy-schizophrenia", date:"2026-07-11", answer:"Schizophrenia",
+      accept:["schizophrenia"],
+      clues:[
+        "A 24-year-old is brought in by his parents, who say he has 'changed completely' over the past year. He dropped out of college, stopped bathing, and barely leaves his room.",
+        "He's convinced a secret organization is monitoring him through his laptop camera. He's taped over every camera and mirror in his apartment and won't answer the door.",
+        "He hears two voices arguing with each other about his actions — clearly external to his own thoughts, distressing, and interrupting his ability to concentrate.",
+        "His thinking is disorganized: he shifts topics mid-sentence, leaves thoughts unfinished, and answers questions with loosely connected tangents. His affect is flat and expressivity minimal.",
+        "Delusions, auditory hallucinations, and disorganized thinking have been continuously present for over a year. He's quit his job, eats irregularly, and barely bathes. No prior mood episodes, no substance use, normal medical workup."
+      ],
+      teach:"Schizophrenia requires two or more active-phase symptoms for ≥1 month plus continuous signs of disturbance for ≥6 months. Negative symptoms (flat affect, avolition, alogia, anhedonia) and functional decline are as diagnostically important as hallucinations and delusions."
+    },
+    {
+      id:"easy-conduct", date:"2026-07-12", answer:"Conduct Disorder",
+      accept:["conduct disorder"],
+      clues:[
+        "A 14-year-old is brought in on a court order following his second shoplifting arrest. The juvenile officer notes the arrests are only the most visible part of a longer pattern.",
+        "In the past year he's been suspended three times for fighting, broken into a neighbor's shed, and been deliberately cruel to a neighborhood animal. His parents say the pattern has escalated since age 11.",
+        "He expresses no remorse. Asked how the neighbor felt about the shed, he shrugs: 'Not my problem.' He consistently minimizes harm to others and reassigns blame.",
+        "The family has stable housing and no documented history of abuse. His younger sibling has no conduct concerns. He's acted this way across school, home, and the community.",
+        "A repetitive, persistent pattern of behavior violating others' rights or major social norms — including aggression, property destruction, deceitfulness, and serious rule violations — present across settings for over 12 months, with at least one criterion in the past 6 months. Limited insight."
+      ],
+      teach:"Conduct Disorder requires 3 or more criteria across four groups (aggression, property destruction, deceitfulness, serious rule violations) in the past 12 months, with at least one in the last 6 months. The callous-unemotional specifier (limited prosocial emotions) carries significant prognostic weight."
+    },
+    {
+      id:"easy-anorexia-bep", date:"2026-07-13", answer:"Anorexia Nervosa, Binge-Eating/Purging Type",
+      accept:["anorexia nervosa binge-eating purging type","anorexia nervosa, binge-eating/purging type","anorexia nervosa binge eating purging type","anorexia nervosa","anorexia"],
+      clues:[
+        "A 19-year-old is referred by her college roommate after she was found purging in the bathroom after meals. The client is visibly underweight — the roommate estimates she hasn't gained weight since high school.",
+        "She restricts intake severely but says her eating has been 'out of control lately.' Sometimes she eats large amounts after starving, then purges. 'The purging keeps me safe,' she says.",
+        "Her BMI is significantly low. She has fine lanugo on her arms. She says she still has 'areas to work on' and denies being underweight, despite visible emaciation.",
+        "Her purging threshold is very low — she purges after eating amounts others would consider small. Her self-worth is entirely organized around body weight and shape.",
+        "Restriction of food intake resulting in significantly low body weight, intense fear of weight gain, and disturbed body image — with recurrent binge-eating or purging behavior in the past three months. Insight is absent: she denies the medical seriousness of her current weight."
+      ],
+      teach:"The binge-eating/purging type of anorexia is distinguished from bulimia nervosa by significantly low body weight — the defining distinction. Both types share intense fear of weight gain and body image disturbance. Medical risk is high: electrolyte disturbances, cardiac arrhythmia, and bone density loss."
+    },
+    {
+      id:"easy-cannabis", date:"2026-07-14", answer:"Cannabis Use Disorder",
+      accept:["cannabis use disorder"],
+      clues:[
+        "A 23-year-old comes in at a parent's insistence. 'I just smoke to chill — it's not a problem.' They use daily, starting in the afternoon and smoking until bed.",
+        "They've tried to stop or cut back three or four times in the past year. Each attempt lasted about a week before irritability, restlessness, and insomnia drove them back.",
+        "They've started showing up late to their afternoon work shift after losing track of time, and have called in sick twice after forgetting they had a shift.",
+        "They've withdrawn from friends who don't smoke and spend most free time obtaining, using, or recovering from use. Without cannabis they feel anxious and can't sleep — they describe it as 'just feeling normal.'",
+        "A pattern of cannabis use causing significant impairment over 12 months: failed attempts to cut back, tolerance, withdrawal on abstinence, using more than intended, and continued use despite work and social consequences. Insight is limited."
+      ],
+      teach:"Cannabis Use Disorder requires 2 or more of 11 criteria within 12 months. Withdrawal (irritability, insomnia, anxiety, decreased appetite) is an official DSM-5 criterion. A common presenting pattern: clients use to manage baseline anxiety that the drug is actually sustaining through withdrawal cycles."
+    },
+    {
+      id:"easy-gambling", date:"2026-07-15", answer:"Gambling Disorder",
+      accept:["gambling disorder"],
+      clues:[
+        "A 41-year-old comes in at a spouse's ultimatum. They've gambled since their twenties, mostly at casinos. The past two years have escalated sharply.",
+        "They've lost $60,000 and borrowed heavily from family without explaining what the money was for. They took a second job not to save, but to fund continued gambling.",
+        "They need to bet increasing amounts to achieve the same excitement. When they try to stop they become irritable, restless, and unable to concentrate. They've told their spouse five times they've quit — and meant it each time.",
+        "After big losses they return the next day to 'win it back.' Their partner has found casino receipts hidden in the car on three separate occasions.",
+        "Persistent, recurrent gambling despite harm: preoccupation with gambling, needing increasing amounts, failed efforts to stop, irritability when cutting back, chasing losses, lying to family, and jeopardizing relationships — four or more criteria over 12 months. Limited insight."
+      ],
+      teach:"Gambling Disorder is the only behavioral addiction formally recognized in DSM-5, classified alongside substance-related disorders. The 'chasing' pattern — returning to win back losses — is a particularly strong diagnostic indicator. Denial and minimization parallel patterns in substance use disorders."
+    },
+    {
+      id:"easy-tourettes", date:"2026-07-16", answer:"Tourette's Disorder",
+      accept:["tourette s disorder","tourette's disorder","tourettes disorder","tourettes","tourette disorder","tourette syndrome","tourette's syndrome"],
+      clues:[
+        "An 11-year-old boy is referred after teachers report disruptive eye-rolling, head-jerking, and throat-clearing he cannot control. He's been teased by classmates and is visibly embarrassed.",
+        "The movements are sudden, repetitive, and non-rhythmic — distinct from normal fidgeting. His parents noticed similar but milder movements two years ago that gradually shifted: eye-blinking gave way to shoulder-shrugging before the current pattern.",
+        "There's also an involuntary sniff-grunt he makes intermittently. He can briefly suppress it, but only at the cost of a mounting pressure that becomes almost intolerable — like holding a sneeze. It always comes out eventually.",
+        "Neurological exam is otherwise normal. No medical explanation has been found. Tics in some form have been present for over a year with no tic-free period longer than three months.",
+        "Multiple motor tics and at least one vocal tic — present at some point during the illness, though not necessarily simultaneously — first appearing before age 18, lasting more than a year, not attributable to substances or another medical condition."
+      ],
+      teach:"Tourette's requires both multiple motor tics and at least one vocal tic, lasting more than one year (though tic type, frequency, and location can shift over time). Tics are typically preceded by a premonitory sensory urge and can be transiently suppressed — at the cost of mounting discomfort that demands eventual release."
     }
   ],
   medium: [
@@ -422,6 +542,136 @@ const CASES = {
         "Following a traumatic event: at least 9 of 14 symptoms across intrusion, negative mood, dissociation, avoidance, and arousal clusters — lasting between 3 days and 1 month, with significant distress or impairment."
       ],
       teach:"Acute Stress Disorder is the diagnosis for the first month post-trauma (3 days–1 month). Dissociative symptoms feature more prominently in ASD than in PTSD criteria. ASD may or may not progress to PTSD — it's not a guaranteed precursor."
+    },
+    {
+      id:"med-mdd-psychotic", date:"2026-07-07", answer:"Major Depressive Disorder, With Psychotic Features",
+      accept:["major depressive disorder with psychotic features","major depressive disorder, with psychotic features","mdd with psychotic features","psychotic depression"],
+      clues:[
+        "A 55-year-old is brought in by their adult children after two months of worsening depression. They've stopped eating, won't leave their room, and say repeatedly that 'it's over.'",
+        "They're convinced they have cancer — despite a completely normal workup including MRI and an oncology consultation last week. The belief cannot be shaken by the results.",
+        "They also believe they've caused financial ruin that will destroy their family, despite bank records showing adequate savings. They're certain the records are wrong.",
+        "The beliefs are mood-congruent: failure, illness, and ruin. There is no history of psychotic symptoms outside of depressive episodes, and no history of mania.",
+        "The delusions emerged during this episode and, as far as the history suggests, have never occurred independently of a mood episode.",
+        "Full MDE criteria plus mood-congruent delusions of somatic disease and financial ruin — not explained by schizoaffective disorder or occurring exclusively during a primary psychotic illness. Insight is absent: the client is certain the beliefs are simply true."
+      ],
+      teach:"The psychotic features specifier applies when delusions or hallucinations occur during a MDE. Mood-congruent content (failure, guilt, ruin, somatic disease) is typical. Critical distinction from schizoaffective disorder: in MDD with psychotic features, the psychosis does not persist after the mood episode resolves."
+    },
+    {
+      id:"med-ocpd", date:"2026-07-08", answer:"Obsessive-Compulsive Personality Disorder",
+      accept:["obsessive compulsive personality disorder","obsessive-compulsive personality disorder","ocpd","obsessive compulsive personality disorder ocpd"],
+      clues:[
+        "A 47-year-old accountant enters therapy because their spouse has threatened to leave over 'controlling behavior.' The client comes reluctantly and frames the appointment as a chance to explain what the spouse isn't understanding.",
+        "Home life runs on schedules and rules they've established for efficiency. Deviations cause genuine distress — a dish left in the sink, laundry started at the wrong time, a change to the dinner plan.",
+        "At work they're technically excellent but have missed two deadlines because they couldn't submit anything less than perfect. They've redone reports multiple times rather than accept a 'good enough' version.",
+        "They've delegated tasks to their children and then quietly redone each one. They keep appliances they no longer use because discarding them feels wasteful. Vacations haven't happened in six years.",
+        "Their moral standards are rigid — they become genuinely upset when others cut small ethical corners. Work comes before leisure or relationships, and they don't see anything wrong with that ordering.",
+        "A pervasive pattern of preoccupation with orderliness, perfectionism, and control at the expense of flexibility and efficiency: rigid rules, perfectionism interfering with task completion, excessive devotion to work, inflexibility about ethics, inability to delegate, and difficulty discarding worthless objects. At least 4 of 8 criteria since early adulthood. Insight is limited — the standards feel correct, not excessive."
+      ],
+      teach:"OCPD is ego-syntonic: the client experiences the rigidity as justified and correct, in contrast to OCD's egodystonic obsessions. The clinically important distinction: OCPD's rigidity impairs flexibility and relationships; OCD's obsessions are experienced as intrusive and unwanted. Both can coexist."
+    },
+    {
+      id:"med-paranoid-pd", date:"2026-07-09", answer:"Paranoid Personality Disorder",
+      accept:["paranoid personality disorder","paranoid personality"],
+      clues:[
+        "A 44-year-old comes in at an employer EAP's insistence after filing a complaint alleging that a coworker sabotaged their performance review. They're reluctant and scanning the room as they speak.",
+        "They describe a pattern going back decades: colleagues who 'play nice to your face,' friends who eventually 'showed their true colors,' family members cut off after perceived betrayals — each described as the other person's fault.",
+        "They keep detailed logs of workplace slights — saved emails, noted glances. They've consulted a lawyer twice in the past year about potential wrongful conduct by colleagues, both times without actionable findings.",
+        "Their partner reports being questioned about fidelity regularly despite no evidence of infidelity. The client explains: 'Everyone cheats if they think they can get away with it.' They present this as realism, not jealousy.",
+        "They acknowledge difficulty trusting others but insist this is rational and earned: 'I've been proven right before.' The pattern predates any single betrayal and spans every major relationship in their life.",
+        "A pervasive pattern of suspiciousness and distrust such that others' motives are interpreted as malevolent: unjustified suspicions of exploitation, preoccupation with doubts about loyalty, reluctance to confide, reading benign remarks as threatening, persistent grudges, and unfounded suspicions about partner fidelity. At least 4 of 7 criteria since early adulthood. Insight is limited — the suspicion feels like accurate perception."
+      ],
+      teach:"Paranoid PD involves pervasive suspiciousness as a stable personality trait, not discrete delusions — this distinguishes it from delusional disorder. Distinguish from schizotypal PD (which adds magical thinking and perceptual distortions) and from PTSD-related hypervigilance (which is contextually linked to trauma). Limited insight is the rule and the main treatment barrier."
+    },
+    {
+      id:"med-ied", date:"2026-07-10", answer:"Intermittent Explosive Disorder",
+      accept:["intermittent explosive disorder","intermittent explosive disorder ied","ied","ied anger"],
+      clues:[
+        "A 32-year-old is referred after a road-rage incident resulted in a police report. Their partner describes similar episodes at home: sudden intense outbursts over trivial frustrations, followed by rapid return to baseline.",
+        "The triggers are consistently minor: a driver who cuts them off, a dish left in the sink, a comment at work that felt dismissive. The response — yelling, throwing an object, punching a wall — is grossly out of proportion.",
+        "Between episodes their mood is unremarkable — no depression, no sustained anxiety, no mania. The explosions are episodic and discrete, not a continuous undercurrent of irritability.",
+        "After each episode they feel genuine remorse and embarrassment. They describe the anger as building rapidly — 'something takes over' — and then dissipating quickly after the outburst.",
+        "They deny wanting to hurt anyone and have never been physically violent toward a person. The episodes are distressing to them and are damaging their relationship.",
+        "Recurrent outbursts representing failure to control aggressive impulses — verbal or behavioral aggression at least twice weekly for 3 months, or 3 behavioral outbursts in 12 months — with outburst magnitude grossly out of proportion to any provocation, not better explained by another disorder, substance use, or a medical condition."
+      ],
+      teach:"IED is defined by rapid-onset explosive outbursts grossly disproportionate to triggers, with quick resolution back to normal mood. Rule out: bipolar disorder (sustained mood changes between episodes), BPD (reactivity tied to interpersonal abandonment), and substance intoxication. The remorse after outbursts is diagnostically characteristic."
+    },
+    {
+      id:"med-did", date:"2026-07-11", answer:"Dissociative Identity Disorder",
+      accept:["dissociative identity disorder","did","dissociative identity disorder did","multiple personality disorder"],
+      clues:[
+        "A 28-year-old comes in saying they've been 'losing time.' They find notes they don't remember writing, have been greeted by strangers using a name that isn't theirs, and once found themselves two hours from home with no memory of getting there.",
+        "Their partner describes periods when they seem like 'a completely different person' — different voice, different name, different mannerisms. The client has no recall of these periods.",
+        "They describe internal voices — not external, but inner voices with distinct personalities: one childlike and frightened, another harsh and contemptuous — that sometimes 'take over.'",
+        "History: severe, repeated abuse beginning before age 6. Large portions of their childhood are 'blank.' Current safety is established. The presentation is chronic, not acute.",
+        "The clinician notices that affect, vocabulary, and biographical details shift unexpectedly during the same interview. The switching is not explained by substances or a medical condition.",
+        "Disruption of identity characterized by two or more distinct personality states, with recurrent amnesia for everyday events, important personal information, or traumatic events — not part of a broadly accepted cultural practice, causing significant distress or functional impairment."
+      ],
+      teach:"DID is associated with severe, repeated early trauma, typically before age 9. The internal 'voices' differ from schizophrenic hallucinations — they are experienced as internal and identity-based, not as external. Amnesia is a core feature: many clients present with unexplained time loss rather than awareness of distinct alter states."
+    },
+    {
+      id:"med-gender-dysphoria", date:"2026-07-12", answer:"Gender Dysphoria",
+      accept:["gender dysphoria"],
+      clues:[
+        "A 17-year-old is referred by their parents after disclosing they've felt 'wrong' in their body since around age 9. They've asked to use a different name and pronouns at home.",
+        "They describe a persistent, intense incongruence between their assigned sex at birth and their experienced gender. 'I have always felt like a girl inside,' they say. 'This isn't new or sudden.'",
+        "They express significant distress about pubertal changes that don't match their sense of self, and have researched gender-affirming medical options independently.",
+        "Their gender identity is clear and consistent — they are not confused about who they are. The distress is about the mismatch between their body and their inner experience, not about the identity itself.",
+        "At school they have friends and adequate grades. The distress has intensified as puberty continues and the home environment remains unsupportive.",
+        "Marked incongruence between experienced or expressed gender and assigned gender — with significant distress or impairment — persisting for at least 6 months. The diagnosis captures the distress of incongruence and supports access to care; the identity itself is not the disorder."
+      ],
+      teach:"DSM-5 frames Gender Dysphoria as the distress arising from gender incongruence, not the identity itself. The diagnosis supports access to gender-affirming care. Distinguish from body dysmorphic disorder (concern is about specific features, not holistic gender identity) and from normative gender non-conformity that causes no significant distress."
+    },
+    {
+      id:"med-delusional", date:"2026-07-13", answer:"Delusional Disorder",
+      accept:["delusional disorder"],
+      clues:[
+        "A 52-year-old is brought in by their sister after a months-long escalation of a dispute with their neighbor. The client is calm, articulate, and completely certain the neighbor is systematically poisoning their property.",
+        "They've hired a private investigator, installed cameras, sent two certified letters to the city, and brought bagged soil samples to the appointment. When samples came back clean, they concluded the test 'wasn't sensitive enough.'",
+        "On interview, cognition is intact and speech is organized and coherent. They discuss work, family, and other matters normally. The belief about the neighbor doesn't spill into other domains of thinking.",
+        "No history of schizophrenia. No hallucinations. No mania. Functioning outside the delusional domain is largely preserved — they work, maintain relationships, and manage daily tasks.",
+        "The belief has been fixed and unwavering for seven months. Every ambiguous event is incorporated as further confirmation. The neighbor's denial is itself taken as evidence of culpability.",
+        "One or more delusions lasting at least one month — with overall functioning not markedly impaired beyond the delusion's impact, without prominent hallucinations, and without the other active-phase symptoms of schizophrenia. Insight is absent."
+      ],
+      teach:"Delusional disorder is distinguished from schizophrenia by the absence of other active-phase symptoms and the relative preservation of overall functioning. The delusion is circumscribed. Persecutory type is most common. The belief is unshakeable and the client rarely seeks — or accepts — psychiatric treatment."
+    },
+    {
+      id:"med-dependent-pd", date:"2026-07-14", answer:"Dependent Personality Disorder",
+      accept:["dependent personality disorder","dependent personality"],
+      clues:[
+        "A 36-year-old comes in the week after a five-year relationship ended. 'I don't know how to be alone,' they say. They moved back to their parents' home that same week. They have never lived independently.",
+        "During the relationship they let their partner make virtually all decisions: where to live, which jobs to consider, which invitations to accept. They consistently abandoned their own preferences to avoid disagreement.",
+        "During periods when their partner worked out of town, they became physically ill from anxiety — unable to eat, sleep, or go to work without another person present. No medical cause was found.",
+        "They've already begun spending extensive time with a supportive coworker and describe the search for someone to 'take care of things' as urgent.",
+        "Looking back, every relationship since adolescence has followed the same arc: immediate intense attachment, wholesale accommodation to the partner's preferences, and inability to function when alone.",
+        "A pervasive, excessive need to be taken care of — leading to submissive and clinging behavior: difficulty making everyday decisions without reassurance, needing others to assume responsibility, fear of disagreement, and urgency to find a replacement relationship when one ends. At least 5 of 8 criteria since early adulthood. Limited insight."
+      ],
+      teach:"Dependent PD is distinguished from separation anxiety (which focuses on fear of harm to attachment figures, not a need for care-taking broadly) and from BPD (where dependency intertwines with abandonment rage and identity instability). The passive accommodation and urgency to replace a relationship when it ends are characteristic features."
+    },
+    {
+      id:"med-histrionic-pd", date:"2026-07-15", answer:"Histrionic Personality Disorder",
+      accept:["histrionic personality disorder","histrionic personality"],
+      clues:[
+        "A 34-year-old comes in following a workplace counseling. They interpreted a routine organizational restructuring as personally directed at them, cried in the break room, and told colleagues 'this place is destroying me.'",
+        "In the intake they're warm, engaging, and immediately intimate — sharing personal anecdotes before being asked, describing events in theatrical superlatives: 'the worst thing that's ever happened to anyone.'",
+        "They acknowledge feeling uncomfortable when they're not the center of attention, and describe their relational style as naturally flirtatious. They are carefully and strikingly dressed.",
+        "Emotional expressions shift rapidly throughout the session — tears, laughter, indignation — in a way that feels somewhat performed. Asked for specific facts, they offer impressions and feelings rather than details.",
+        "In relationships they describe intense early connections that others experienced as more casual. They romanticize acquaintances and feel devastated when the closeness they perceived isn't reciprocated.",
+        "A pervasive pattern of excessive emotionality and attention-seeking: discomfort when not the center of attention, provocative behavior, rapidly shifting and shallow emotion, using appearance to draw attention, impressionistic vague speech, theatrical expression, suggestibility, and overestimating relationship intimacy. At least 5 of 8 criteria since early adulthood."
+      ],
+      teach:"Histrionic PD is distinguished from BPD by the absence of identity disturbance, abandonment terror, self-harm, and the intense interpersonal volatility characteristic of BPD. The core feature is attention-seeking and dramatic emotionality as a stable personality pattern. The impressionistic speech style — emotion-heavy, detail-light — is a clinically distinctive marker."
+    },
+    {
+      id:"med-odd", date:"2026-07-16", answer:"Oppositional Defiant Disorder",
+      accept:["oppositional defiant disorder","odd","oppositional defiant disorder odd","oppositional defiant"],
+      clues:[
+        "A 9-year-old girl is referred by her school for 'refusing to cooperate.' She argues back with every instruction, blames classmates for problems she started, and has three detention notices in the past month.",
+        "The same pattern plays out at home: she argues with any parental request, loses her temper over minor limits, and deliberately provokes her siblings when told no. Homework is a nightly battle.",
+        "These behaviors have persisted across settings for over eight months. Her parents describe her as defiant since around age 6 and say they've exhausted every approach they know.",
+        "She has not stolen, destroyed property, or physically harmed anyone. There are no police or legal concerns. The behaviors are argumentative and hostile but don't cross into serious aggression.",
+        "A pattern of angry/irritable mood, argumentative/defiant behavior, and vindictiveness — present for at least 6 months in at least one setting, causing distress or impairment — with at least 4 symptoms across the three clusters. Insight is limited.",
+        "Ruling out: conduct disorder (no serious aggression, property destruction, or major social norm violations). The behaviors are developmentally inappropriate in frequency and severity and causing impairment at both school and home."
+      ],
+      teach:"ODD is diagnosed when defiant, hostile behavior meets threshold severity, frequency (norms differ by age), and duration criteria and causes impairment — not simply a description of difficult temperament. The three clusters are: angry/irritable mood, argumentative/defiant behavior, and vindictiveness. Conduct disorder is excluded by the absence of serious violations."
     }
   ],
   hard: [
@@ -434,8 +684,8 @@ const CASES = {
         "She describes a lifelong pattern of losing things, missing deadlines, and difficulty sustaining attention on paperwork — but she's bright and verbal and earned good grades through enormous effort.",
         "She rarely looks outwardly hyperactive. Instead she describes internal restlessness and \"a brain that won't slow down.\" As a child she was called a quiet daydreamer, never a behavior problem.",
         "The inattentive pattern has been present for years across both home and work and clearly predates the anxiety, which looks secondary to years of struggling and self-blame.",
-        "Consider sex/gender differences: girls and women far more often show the inattentive, non-disruptive presentation, so the condition is missed in childhood and later mislabeled as anxiety or depression.",
-        "Criteria: ≥6 inattentive symptoms, several present before age 12, across ≥2 settings, causing impairment, not better explained by another disorder. Insight is limited — she blames her character rather than recognizing a treatable, lifelong condition."
+        "She was never flagged for behavioral issues as a child — she was quiet, well-liked, and managed with enormous effort. Presentations like hers routinely slip through diagnostic nets when a child's struggles don't look like a problem to adults.",
+        "At least six inattentive symptoms present across home and work since before age 12, causing significant impairment — predating and not better explained by the anxiety that first brought her in. Insight is limited: she attributes her difficulties to character, not to a recognizable and treatable pattern."
       ],
       teach:"A bias-check case: an adult woman with inattentive-type ADHD masked by intelligence and effort, commonly misdiagnosed as anxiety. Onset must predate age 12 and span multiple settings."
     },
@@ -448,8 +698,8 @@ const CASES = {
         "These experiences occur within their religious and cultural practices around ancestor veneration, and are shared and validated by their community.",
         "There is no decline in functioning, no disorganized thinking, no distress about the experiences, and no other psychotic symptoms; they sleep, work, and relate normally.",
         "Family and community members report the same kinds of experiences as expected, meaningful, and reassuring — not alarming.",
-        "Check your own cultural lens: experiences that resemble hallucinations may be entirely normative within a cultural or religious framework rather than evidence of illness.",
-        "No impairment, no distress, fully congruent with cultural norms, and not better explained by a mental disorder. The clinically correct call here is that this is not a mental disorder."
+        "Check your own assumptions: not every unusual experience constitutes a symptom. The diagnostic framework requires distress or impairment — and the cultural context in which an experience is embedded matters for how it's evaluated.",
+        "No impairment, no distress, and experiences fully congruent with the client's religious and cultural community — shared and expected by others in that community — without features of psychotic illness when assessed through a culturally informed lens."
       ],
       teach:"A bias-check case: DSM-5 explicitly excludes culturally sanctioned responses (e.g., hearing a deceased relative's voice in some communities) from being labeled disorders when there is no distress or impairment."
     },
@@ -461,9 +711,9 @@ const CASES = {
         "She describes rehearsing conversations in advance, copying others' facial expressions, and feeling like she's \"performing\" to fit in — then collapsing afterward.",
         "She has intense, focused interests, strong sensory sensitivities to noise and clothing textures, and a deep need for routine that she's learned to hide.",
         "As a girl she had one or two close friends and was seen as \"shy but fine\"; she taught herself social scripts that masked her difficulties from teachers.",
-        "She struggles to read subtle social cues and with back-and-forth reciprocity, despite superficially smooth social skills built from years of effort.",
-        "Consider sex/gender differences: women more often camouflage social-communication differences and show less overt repetitive behavior, leading to late or missed diagnosis and frequent mislabeling as anxiety or borderline personality.",
-        "Persistent social-communication deficits plus restricted/repetitive patterns (intense interests, routines, sensory sensitivity), present since early development, impairing once social demands outstripped her masking. Insight is okay-to-limited — she's concluded she's simply \"bad at being a person.\""
+        "She struggles to read subtle social cues and with back-and-forth reciprocity, despite superficially smooth social skills built from years of effortful study of others.",
+        "Her surface-level social fluency comes at enormous cost — she collapses after interactions, spending hours recovering. The gap between how she appears to others and how she experiences social life is the central clinical feature.",
+        "Persistent social-communication deficits plus restricted/repetitive patterns (intense interests, need for routine, sensory sensitivity) present since early development — impairing once social demands outstripped her compensatory strategies. Insight is limited: she's concluded she's simply \"bad at being a person.\""
       ],
       teach:"A bias-check case: camouflaging in women masks autism, which is then mislabeled as anxiety or BPD. Core features (social-communication deficits + restricted/repetitive behaviors) must trace to early development."
     },
@@ -606,6 +856,146 @@ const CASES = {
         "Preoccupation with having or acquiring a serious illness, high health anxiety, easy alarm about health status — with excessive health-related checking behaviors despite mild or absent somatic symptoms, lasting ≥6 months, with shifting illness focus."
       ],
       teach:"Illness Anxiety Disorder (formerly hypochondriasis) is distinguished from Somatic Symptom Disorder by the relative absence of prominent somatic symptoms — the preoccupation is with the feared disease. The illness focus commonly shifts over time. Reassurance provides only brief relief and can reinforce the cycle."
+    },
+    {
+      id:"hard-schizoid-pd", date:"2026-07-07", answer:"Schizoid Personality Disorder",
+      accept:["schizoid personality disorder","schizoid personality","schizoid"],
+      clues:[
+        "A 38-year-old is referred by their PCP, who flagged they've declined all preventive care for years and appear to have no social support. The client attends with polite puzzlement — they don't see the concern.",
+        "They live alone and have no close friendships. They've had one brief relationship in their twenties and describe it as 'more trouble than it was worth.' They prefer it this way — genuinely, not defensively.",
+        "There is no apparent distress about the isolation. No sadness, no longing. 'I like being alone. I don't need other people.' The statement is flat and matter-of-fact, not bitter.",
+        "Their interests are entirely solitary: a complex hobby pursued for fifteen years, reading, online chess. Their job minimizes face-to-face contact. They've worked there for nine years without issue.",
+        "Their emotional range throughout the session is restricted — direct, concise, affectively flat. No interest in sex or romance. Relationships are described as draining and unnecessary rather than frightening.",
+        "Asked about their inner life, they describe stability and quiet: no loneliness, no turbulence, no magical thinking, no perceptual distortions. The detachment is pervasive and entirely comfortable to them.",
+        "A pervasive pattern of detachment from social relationships and restricted emotional expression: neither desiring nor enjoying close relationships, choosing solitary activities, little interest in sexual experiences, pleasure in few activities, no close friends, indifference to praise or criticism, emotional coldness and detachment. At least 4 of 7 criteria since early adulthood. Insight is limited — they experience this as simply preferring solitude."
+      ],
+      teach:"Schizoid PD is distinguished from avoidant PD by the absence of desire for connection (schizoid is indifferent to relationships; avoidant wants them desperately but fears rejection) and from schizotypal PD by the absence of magical thinking, ideas of reference, and cognitive-perceptual distortions. The ego-syntonic detachment — it doesn't feel like a problem to them — is the central diagnostic marker."
+    },
+    {
+      id:"hard-aspd", date:"2026-07-08", answer:"Antisocial Personality Disorder",
+      accept:["antisocial personality disorder","aspd","antisocial personality disorder aspd","antisocial personality","antisocial"],
+      clues:[
+        "A 34-year-old comes in on a court mandate following a fraud conviction. They are relaxed and pleasant, immediately positioning the evaluator as 'unusually perceptive.' The rapport-building is rapid and skillful.",
+        "They describe the fraud as 'a game that got complicated.' The victims weren't really hurt, they say — 'they should have done their due diligence.' No remorse or discomfort is evident when discussing it.",
+        "History: fighting at school, cruelty to animals at age 10, running away, fire-setting. They frame none of this as concerning: 'Kids test limits. I was just ahead of the curve.'",
+        "In adulthood: multiple jobs ended abruptly or terminated for cause; two prior arrests, both pled down; debts left unpaid by relocating; serial short-duration relationships. The pattern has never interrupted their self-narrative of being smarter than the people around them.",
+        "Throughout the session they are charming, make excellent eye contact, and answer questions fluently. Their account is internally inconsistent in several places — they're unconcerned when this is reflected back to them.",
+        "They express genuine puzzlement at others' emotional reactions to being deceived. 'People get too attached to money. It wasn't personal.' The affect is polished and the self-awareness highly selective.",
+        "A pervasive pattern of disregard for and violation of others' rights since age 15 — with documented conduct disorder before age 15: deceitfulness, impulsivity, irritability, reckless disregard for safety, irresponsibility, and absence of remorse. Age ≥18. Not occurring exclusively during a psychotic or bipolar episode."
+      ],
+      teach:"ASPD requires both the pervasive adult pattern and a history of conduct disorder before age 15. Presentations range from 'lifestyle antisocial' (serial irresponsibility, exploitation) to high-functioning with psychopathic features (charm, callousness, calculated manipulation). Neither overt violence nor charm is required — the diagnosis is about persistent disregard for others' rights as a stable trait."
+    },
+    {
+      id:"hard-dissoc-amnesia", date:"2026-07-09", answer:"Dissociative Amnesia",
+      accept:["dissociative amnesia"],
+      clues:[
+        "A 29-year-old is brought to the ER by a coworker after being found disoriented in the parking lot. They cannot recall the past three days — including how they got to work that morning.",
+        "Neurological workup is completely normal: no seizures, no head trauma, no substance use detected on toxicology. MRI, EEG, and labs are all negative. Neurology finds no structural or metabolic explanation.",
+        "A family member reports that three days ago the client attended a traumatic event — a sudden, unexpected death in the family — and 'just shut down' afterward.",
+        "Outside the three-day gap, memory is intact: remote autobiographical memory, identity, and current-moment functioning are all normal. The amnesia is bounded — it surrounds a specific period.",
+        "No psychotic symptoms, no mania, no mood episode. The client is calm, cooperative, and genuinely puzzled — they can describe the 'blankness' but cannot access anything within it.",
+        "Unlike a fugue presentation, they haven't traveled or adopted a new identity. They know their name, their job, where they live. Only the three-day block is missing; everything before and after it remains accessible.",
+        "Inability to recall important autobiographical information — typically of a traumatic or stressful nature — too extensive to be explained by ordinary forgetting, not attributable to substances, neurological conditions, or another mental disorder, causing significant distress or impairment."
+      ],
+      teach:"Dissociative amnesia is distinguished from neurological causes by the normal workup and the psychologically meaningful precipitant, and from normal forgetting by the extent and bounding of the gap around a stressful event. Dissociative fugue is now a specifier (not a separate diagnosis in DSM-5) for episodes involving purposeful travel or assumption of a new identity during the amnesic period — not present here."
+    },
+    {
+      id:"hard-dsed", date:"2026-07-10", answer:"Disinhibited Social Engagement Disorder",
+      accept:["disinhibited social engagement disorder","dsed","disinhibited social engagement disorder dsed","disinhibited social engagement"],
+      clues:[
+        "A 5-year-old recently adopted from institutional care is referred for behavior the adoptive parents describe as 'bizarrely friendly.' He approaches strangers in the park, asks to be carried, and will follow unfamiliar adults without hesitation or a backward glance.",
+        "In the waiting room he immediately climbed into the receptionist's lap and showed no concern that his adoptive parents were across the room. He attached to any available adult with equal enthusiasm.",
+        "The adoptive parents are warm, attentive, and describe a rich home environment. He eats well, plays freely, shows affection — but doesn't prefer them over strangers in moments of need or distress.",
+        "History: the first three years of his life were spent in an institution with rotating, overwhelmed caregivers and no consistent attachment figure. He was adopted at 3 years and 4 months.",
+        "Developmental and cognitive assessments are age-appropriate. Social engagement is not the problem — he is actively and eagerly social. The problem is the complete absence of normal caution with strangers, and failure to check back with his caregivers.",
+        "ADHD evaluation doesn't account for the pattern — this is not task-based impulsivity. The behavior is specifically relational: he seeks affection from any adult, without filtering by safety or familiarity.",
+        "A pattern of culturally inappropriate, overly familiar behavior with unfamiliar adults — reduced reticence approaching strangers, overly familiar verbal or physical behavior, willingness to go off with strangers — arising from a history of insufficient caregiving, present after age 12 months, causing social impairment."
+      ],
+      teach:"DSED contrasts with RAD: both arise from pathogenic early care but in opposite directions — RAD produces inhibited emotional withdrawal from caregivers; DSED produces indiscriminate approach to all adults. DSED can persist even after placement in a caring environment and requires specific, patience-paced intervention beyond simply providing a nurturing home."
+    },
+    {
+      id:"hard-factitious", date:"2026-07-11", answer:"Factitious Disorder",
+      accept:["factitious disorder","factitious disorder imposed on self","munchausen syndrome","munchausen"],
+      clues:[
+        "A 31-year-old nurse is admitted to hematology for a third time with unexplained clotting abnormalities. Each prior admission was inconclusive, and symptoms resolved without a clear cause each time.",
+        "Staff notice the client has expert knowledge of which lab values would suggest anticoagulant use. They've been observed near the medication cart. A urine toxicology screen detects warfarin not listed in their current prescription.",
+        "Their medical history spans multiple hospitals with different presentations that don't cohere into any recognized disease pattern. The chart is extensive, and key claims are difficult to verify across institutions.",
+        "They're relaxed and sociable on the ward during the day but report dramatic symptom spikes whenever discharge is discussed. The pattern of distress tracks precisely with the threat of leaving.",
+        "When gently confronted, they deny self-administering the warfarin. There is no obvious external gain: no insurance fraud, no disability claim, no legal benefit. Income and coverage are stable.",
+        "Off-chart contacts reveal prior admissions at other institutions with similarly unexplained findings. A note from a previous clinical team at another hospital raises the same concern, with the same pattern documented.",
+        "Falsification of physical signs or symptoms, or induction of illness or injury, associated with identified deception — in the absence of obvious external incentives. The individual presents themselves as ill or injured, motivated by the sick role itself, not by tangible external reward."
+      ],
+      teach:"Factitious disorder is diagnosed when deception is confirmed and there is no apparent external incentive — this distinguishes it from malingering. The motivation is the sick role: staff attention, care, and the identity of being a patient. Healthcare workers are overrepresented because they know how to mimic illness convincingly. Confrontation requires careful planning; denial is the expected and typical response."
+    },
+    {
+      id:"hard-mild-ncd", date:"2026-07-12", answer:"Mild Neurocognitive Disorder",
+      accept:["mild neurocognitive disorder","mild ncd","mild cognitive impairment","mci"],
+      clues:[
+        "A 68-year-old retired engineer comes in with their spouse, who says 'they're not themselves.' The client attends willingly: 'I've noticed it too. I'm slower now. Things slip.'",
+        "Neuropsychological testing shows mild but consistent deficits in episodic memory and processing speed — below expectations for age, education level, and prior function. Results are meaningfully lower than testing performed two years ago.",
+        "They live independently and manage their finances, drive safely, and keep appointments without assistance. Daily function is essentially intact — though they've started using lists and phone reminders they never previously needed.",
+        "They occasionally lose track of what they were doing mid-task, repeat themselves more in conversation, and took significantly longer to learn a new device. Their spouse confirms these patterns have developed gradually over 12 to 18 months.",
+        "No delirium. No acute change. No current psychiatric or prominent behavioral symptoms. Full neurological workup — including imaging and labs — is pending.",
+        "The clinical question is not whether there is decline — testing confirms there is — but how to classify it. The independence criterion is the key variable here.",
+        "Modest cognitive decline from a prior level in one or more cognitive domains — supported by the individual's concern, a knowledgeable informant's report, and objective testing — that does not interfere with independence in daily activities. Not occurring exclusively during delirium."
+      ],
+      teach:"Mild NCD (formerly mild cognitive impairment) is defined by the preserved independence criterion — this is what distinguishes it from major NCD (dementia). Compensatory strategies like lists and reminders maintain independence but are themselves a clinical signal. Etiology matters: Alzheimer's, vascular, Lewy body, and frontotemporal subtypes have distinct profiles and different clinical and prognostic implications."
+    },
+    {
+      id:"hard-mdd-melancholic", date:"2026-07-13", answer:"Major Depressive Disorder, With Melancholic Features",
+      accept:["major depressive disorder with melancholic features","major depressive disorder, with melancholic features","mdd with melancholic features","melancholic depression"],
+      clues:[
+        "A 52-year-old is referred after six weeks of depression that hasn't responded to the antidepressant their PCP started. They describe this episode as qualitatively unlike anything they've experienced before: 'It's not sadness. It's more like being stopped.'",
+        "There is a complete absence of pleasure across all activities — including those that have always been reliable mood-lifters. No good hours, no distraction. The anhedonia is total and unresponsive to normally enjoyable stimuli.",
+        "Mood is characteristically worse in the morning. They wake around 4 AM and cannot return to sleep. By afternoon they feel marginally less terrible, though never actually well.",
+        "They've lost 10 lbs without trying. Movements and speech are visibly slowed — it takes visible effort to respond to questions. Guilt is disproportionate and fixed: they're convinced they've been a terrible parent, despite their adult children's protests.",
+        "The quality of this episode is distinct from grief or any situational reaction. There is no clear precipitant. The symptom pattern — morning worsening, early awakening, psychomotor disturbance, and profound anhedonia — has a neurovegetative character.",
+        "No history of mania or hypomania. No psychotic features. No medical cause on workup. Two prior depressive episodes over twenty years did not have this quality.",
+        "Full MDE criteria plus: loss of pleasure in almost all activities or absence of reactivity to pleasurable stimuli, plus at least three additional features — a qualitatively distinct depressed mood, regular morning worsening, early morning awakening, observable psychomotor disturbance, significant anorexia or weight loss, and excessive or inappropriate guilt."
+      ],
+      teach:"The melancholic specifier identifies a biologically-driven, neurovegetative depressive pattern that is less responsive to psychotherapy or placebo alone and more likely to respond to somatic treatments (tricyclic antidepressants, ECT, or MAOIs in refractory cases). The qualitative distinctness — often described as an absence or numbness rather than sadness — is clinically meaningful and prognostically relevant."
+    },
+    {
+      id:"hard-stimulant-ud", date:"2026-07-14", answer:"Stimulant Use Disorder",
+      accept:["stimulant use disorder"],
+      clues:[
+        "A 27-year-old is brought to the ER by a roommate after three days without sleep. They're agitated, speech is rapid, and there are fresh skin sores on their arms from repetitive picking. The roommate says this is the fourth similar episode this year.",
+        "Between these acute episodes the client describes days of profound fatigue, excessive sleep, and inability to feel pleasure — craving the drug intensely. These post-binge crashes last several days before the cycle resumes.",
+        "First use at 19 for studying. Use escalated following a job loss at 24. Now daily use, primarily to forestall the crash: 'I take it to feel normal,' they say between bursts of agitation.",
+        "They've lost 25 lbs in six months. Dental health has deteriorated significantly. Rent is two months unpaid and they've lost their job. Four serious attempts to stop in the past year — the longest lasted nine days.",
+        "The roommate reports paranoid ideation during binges: accusations that the roommate was 'planting things,' barricading the door, refusing food prepared by anyone else. These clear consistently within 24 hours of abstinence.",
+        "No psychiatric history predates the drug use. The paranoia, skin-picking, and agitation emerge with use and resolve with abstinence — they are substance-induced, not independent of the drug.",
+        "A pattern of stimulant use causing significant impairment: tolerance, a characteristic withdrawal syndrome (hypersomnia, fatigue, anhedonia), using more than intended, repeated failed efforts to stop, and continued use despite physical deterioration and loss of employment and relationships."
+      ],
+      teach:"Stimulant Use Disorder (methamphetamine in this presentation) can produce substance-induced psychotic symptoms — paranoia, ideas of reference — that must be distinguished from a primary psychotic disorder. The key: onset with use, resolution with abstinence. The crash (hypersomnia, dysphoria, anhedonia) is a withdrawal syndrome and a powerful driver of continued use."
+    },
+    {
+      id:"hard-bipolar-rapid", date:"2026-07-15", answer:"Bipolar I Disorder, With Rapid Cycling",
+      accept:["bipolar i disorder with rapid cycling","bipolar i disorder, with rapid cycling","bipolar 1 disorder with rapid cycling","bipolar i rapid cycling","bipolar rapid cycling","rapid cycling bipolar","bipolar i disorder","bipolar 1 disorder"],
+      clues:[
+        "A 36-year-old comes in for a medication review. They've carried a Bipolar I diagnosis for eight years. Their current mood stabilizer 'doesn't seem to be holding' — the chart shows four distinct mood episodes in the past twelve months.",
+        "Each episode lasts two to six weeks, with non-gradual transitions. A Monday of tearfulness and passive suicidal ideation can be followed within days by a Thursday of expansiveness, rapid speech, and minimal sleep without distress.",
+        "The past twelve months include a full manic episode requiring hospitalization in February, a major depressive episode in March and April, a briefer hypomanic period in July, and a second depressive episode now resolving.",
+        "Prior to the current mood stabilizer, they were treated with antidepressants alone — the period they describe as when the mood switching became most frequent and most severe.",
+        "Thyroid function is normal. Urine toxicology is negative. The current medication regimen has been unchanged for fourteen months — the cycling pattern is not a recent medication effect.",
+        "They've been on lamotrigine for six months with partial benefit and are asking whether their antidepressant history played a role in accelerating the cycling frequency.",
+        "Bipolar I disorder — confirmed by a lifetime manic episode meeting full criteria — with four or more mood episodes in the past twelve months, each meeting full criteria for manic, hypomanic, or major depressive episode, separated by at least partial remission or a switch to an opposite-polarity episode."
+      ],
+      teach:"Rapid cycling (≥4 mood episodes in 12 months) is a course specifier applicable to both Bipolar I and II — not a separate disorder. It affects 10–20% of bipolar patients and is associated with worse prognosis and treatment resistance. Antidepressant use may trigger or maintain rapid cycling in susceptible individuals; reviewing medication history is essential when this specifier applies."
+    },
+    {
+      id:"hard-schizophreniform", date:"2026-07-16", answer:"Schizophreniform Disorder",
+      accept:["schizophreniform disorder","schizophreniform"],
+      clues:[
+        "A 22-year-old with no prior psychiatric history is brought to the ER by roommates after two weeks of escalating disorganization: barricading the dorm room, speaking to people who aren't there, and sending incoherent emails to professors.",
+        "On exam: auditory hallucinations (voices commenting on his actions), persecutory delusions (convinced the university is experimenting on him through the building's ventilation), and marked disorganization in thought and behavior.",
+        "Medical workup is negative: no substance use, no autoimmune encephalitis, no thyroid or metabolic abnormality. The presentation is psychiatric.",
+        "He started antipsychotics six days ago and is showing early improvement — disorganization is decreasing, though hallucinations persist. The team estimates the acute episode onset was approximately five to six weeks ago.",
+        "Premorbid functioning was good — academically successful, socially active. His mother notes a few months of social withdrawal and odd comments before the acute onset, but nothing alarming at the time.",
+        "The timeline is the critical diagnostic anchor here. Whether or not this diagnosis holds depends entirely on what happens over the next several weeks.",
+        "Two or more active-phase schizophrenia symptoms — including at least one of delusions, hallucinations, or disorganized speech — present for at least one month, with total episode duration (including prodromal and residual phases) less than six months. Good premorbid functioning and absence of blunted affect are associated with a more favorable prognosis."
+      ],
+      teach:"Schizophreniform disorder is essentially schizophrenia that has not yet met the 6-month duration criterion. If symptoms persist past 6 months total — including prodromal and residual phases — the diagnosis converts to schizophrenia. Good premorbid functioning and abrupt rather than insidious onset are positive prognostic indicators."
     }
   ]
 };

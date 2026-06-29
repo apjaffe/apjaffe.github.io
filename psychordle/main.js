@@ -4,12 +4,11 @@
 /* normalize for matching */
 function norm(s){
   return s.toLowerCase()
-    .replace(/\(.*?\)/g,"")        // drop parentheticals
-    .replace(/[^a-z0-9 ]/g," ")    // punctuation -> space
-    .replace(/\bdisorder\b/g,"")   // 'disorder' optional
+    .replace(/\(.*?\)/g,"")
+    .replace(/[^a-z0-9 ]/g," ")
+    .replace(/\bdisorder\b/g,"")
     .replace(/\s+/g," ").trim();
 }
-/* a typed string is a valid guess only if it matches a list entry exactly (after normalization) */
 const NORM_SET = new Set(DIAGNOSES.map(norm));
 function isValidGuess(text){ return NORM_SET.has(norm(text)); }
 
@@ -18,16 +17,19 @@ function todayStr(){
   const d=new Date();
   return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
-function isReleased(c){ return !c.date || c.date <= todayStr(); }   // future-dated cases stay hidden
+function isReleased(c){ return !c.date || c.date <= todayStr(); }
 function fmtDate(s){
   const [y,m,d]=s.split("-").map(Number);
   return new Date(y,m-1,d).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});
 }
-/* today's case for a difficulty = the released case with the latest date */
 function todaysCase(diff){
   const released = CASES[diff].filter(isReleased);
   if(!released.length) return null;
   return released.reduce((a,b)=> (b.date||"") > (a.date||"") ? b : a);
+}
+/* Released cases sorted newest → oldest — used for prev/next navigation */
+function releasedOrdered(diff){
+  return CASES[diff].filter(isReleased).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
 }
 
 /* ---------- Progress (localStorage) ---------- */
@@ -39,15 +41,49 @@ function loadProgress(){
 function saveResult(id, result, wrong){
   const p = loadProgress();
   const prev = p[id];
-  // keep best result (a win never overwritten by a later loss)
   if(!(prev && prev.result==="win" && result!=="win")){
     p[id] = { result, wrong };
   }
   try{ localStorage.setItem(STORE_KEY, JSON.stringify(p)); }catch(e){}
 }
-function caseById(id){
-  for(const d of DIFFS){ const c=CASES[d].find(x=>x.id===id); if(c) return {diff:d,theCase:c}; }
-  return null;
+
+/* ---------- In-progress session (localStorage) ---------- */
+const SESS_KEY = "psychordle_session_v1";
+function saveSession(){
+  if(!state || state.over){ clearSession(); return; }
+  try{
+    localStorage.setItem(SESS_KEY, JSON.stringify({
+      id: state.theCase.id,
+      diff: state.diff,
+      attempts: state.attempts,
+      log: state.log||[],
+      revealed: state.revealed
+    }));
+  }catch(e){}
+}
+function loadSession(id){
+  try{
+    const s = JSON.parse(localStorage.getItem(SESS_KEY));
+    return (s && s.id===id) ? s : null;
+  }catch(e){ return null; }
+}
+function clearSession(){
+  try{ localStorage.removeItem(SESS_KEY); }catch(e){}
+}
+
+/* ---------- URL hash ---------- */
+function setHash(id){
+  history.replaceState(null, '', '#'+id);
+}
+function clearHash(){
+  history.replaceState(null, '', location.pathname+location.search);
+}
+
+/* ---------- Lookup ---------- */
+function caseByDiffDate(diff, date){
+  if(!DIFFS.includes(diff)) return null;
+  const c = CASES[diff].find(x=>x.date===date);
+  return c ? {diff, theCase:c} : null;
 }
 
 /* ---------- State ---------- */
@@ -60,12 +96,13 @@ const playArea=$("playArea"), endArea=$("endArea"), resultEl=$("result"), answer
 
 /* ---------- Navigation ---------- */
 function show(sec){
-  homeEl.style.display = sec==="home"?"block":"none";
-  gameEl.style.display = sec==="game"?"block":"none";
+  homeEl.style.display  = sec==="home"?"block":"none";
+  gameEl.style.display  = sec==="game"?"block":"none";
   archiveEl.style.display = sec==="archive"?"block":"none";
+  if(sec!=="game") $("caseNav").style.display="none";
   window.scrollTo(0,0);
 }
-function goHome(){ renderHomeProgress(); show("home"); }
+function goHome(){ clearHash(); renderHomeProgress(); show("home"); }
 
 function renderHomeProgress(){
   const p = loadProgress();
@@ -82,33 +119,57 @@ function renderHomeProgress(){
   });
 }
 
+/* ---------- Prev / Next case nav ---------- */
+function updateCaseNav(){
+  const nav = $("caseNav");
+  if(!state){ nav.style.display="none"; return; }
+  const list = releasedOrdered(state.diff);
+  // Hide entirely if only one case in this difficulty
+  nav.style.display = list.length > 1 ? "" : "none";
+}
+function prevCase(){
+  const list = releasedOrdered(state.diff);
+  const idx = list.findIndex(c=>c.id===state.theCase.id);
+  beginCase(state.diff, list[(idx-1+list.length)%list.length]);
+}
+function nextCase(){
+  const list = releasedOrdered(state.diff);
+  const idx = list.findIndex(c=>c.id===state.theCase.id);
+  beginCase(state.diff, list[(idx+1)%list.length]);
+}
+
 /* ---------- Start ---------- */
 function startDifficulty(diff){
   const pick = todaysCase(diff);
   if(pick) beginCase(diff, pick);
 }
-/* cycle to the next released case in the same difficulty (newest → oldest) */
-function nextCase(){
-  const released = CASES[state.diff].filter(isReleased).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
-  if(!released.length) return;
-  const idx = released.findIndex(c=>c.id===state.theCase.id);
-  beginCase(state.diff, released[(idx+1)%released.length]);
-}
 function beginCase(diff, theCase){
   const prior = loadProgress()[theCase.id];
   if(prior){ showPreviousResult(diff, theCase, prior); return; }
-  state = { diff, max:MAX[diff], theCase, revealed:1, attempts:[] };
+
+  // Restore an in-progress session if one exists for this case
+  const sess = loadSession(theCase.id);
+  if(sess){
+    state = { diff, max:MAX[diff], theCase,
+              attempts: sess.attempts, log: sess.log, revealed: sess.revealed };
+  } else {
+    state = { diff, max:MAX[diff], theCase, revealed:1, attempts:[], log:[] };
+  }
+
+  setHash(diff+"-"+(theCase.date||""));
   const isToday = theCase.date === todayStr();
   $("diffLabel").textContent = LABEL[diff] + " · " + state.max + " guesses"
     + (theCase.date ? " · " + (isToday ? "Today's case" : fmtDate(theCase.date)) : "");
   show("game");
   playArea.style.display="block"; endArea.style.display="none";
   guessIn.value=""; hideAC(); refreshSubmit();
+  updateCaseNav();
   render();
 }
 
 function showPreviousResult(diff, theCase, rec){
   state = { diff, max:MAX[diff], theCase, revealed:theCase.clues.length, attempts:[], over:true };
+  setHash(diff+"-"+(theCase.date||""));
   const isToday = theCase.date === todayStr();
   $("diffLabel").textContent = LABEL[diff] + " · " + state.max + " guesses"
     + (theCase.date ? " · " + (isToday ? "Today's case" : fmtDate(theCase.date)) : "");
@@ -122,6 +183,7 @@ function showPreviousResult(diff, theCase, rec){
     + '<div class="hint" style="margin-top:6px">You\'ve already played this case.</div>';
   answerEl.innerHTML = '<div>Diagnosis: <b>'+escapeHtml(theCase.answer)+'</b></div>'
     + '<div style="margin-top:8px;color:var(--muted)">'+escapeHtml(theCase.teach)+'</div>';
+  updateCaseNav();
 }
 
 function render(){
@@ -143,7 +205,7 @@ function render(){
     c.innerHTML='<div class="lbl">Clue '+(i+1)+'</div>'+escapeHtml(state.theCase.clues[i]);
     cluesEl.appendChild(c);
   }
-  // log
+  // guess log
   logEl.innerHTML="";
   (state.log||[]).forEach(entry=>{
     const it=document.createElement("div");
@@ -159,17 +221,15 @@ function isOver(){ return state && state.over; }
 function doSubmit(){
   if(isOver()) return;
   const raw = guessIn.value.trim();
-  // SKIP
   if(raw===""){
     state.attempts.push("skip");
     (state.log=state.log||[]).push({type:"skip",text:"Skipped — asked for another clue"});
     afterAttempt();
     return;
   }
-  if(!isValidGuess(raw)) return; // invalid text is never submittable
+  if(!isValidGuess(raw)) return;
   const correct = state.theCase.accept.includes(norm(raw)) || norm(raw)===norm(state.theCase.answer);
   if(correct){ endRound(true); return; }
-  // valid but wrong
   state.attempts.push("wrong");
   (state.log=state.log||[]).push({type:"wrong",text:raw});
   guessIn.value=""; refreshSubmit();
@@ -179,6 +239,7 @@ function afterAttempt(){
   guessIn.value=""; hideAC(); refreshSubmit();
   if(state.attempts.length >= state.max){ endRound(false); return; }
   if(state.revealed < state.theCase.clues.length) state.revealed++;
+  saveSession();
   render();
   const last=cluesEl.lastElementChild; if(last) last.scrollIntoView({behavior:"smooth",block:"center"});
 }
@@ -188,6 +249,7 @@ function endRound(won){
   state.revealed = state.theCase.clues.length;
   const wrong = state.attempts.filter(x=>x==="wrong").length;
   saveResult(state.theCase.id, won?"win":"loss", wrong);
+  clearSession();
   render();
   playArea.style.display="none"; endArea.style.display="block";
   resultEl.innerHTML = won
@@ -198,12 +260,13 @@ function endRound(won){
   endArea.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-/* ---------- Submit button state (strict validation) ---------- */
+/* ---------- Submit button state ---------- */
 function refreshSubmit(){
   const val = guessIn.value.trim();
   if(val===""){
+    const isLastGuess = state && state.attempts.length === state.max - 1;
     submitBtn.disabled=false;
-    submitBtn.textContent="Skip and see next clue";
+    submitBtn.textContent= isLastGuess ? "Give up" : "Skip and see next clue";
     submitBtn.className="btn skip";
     guessIn.classList.remove("invalid");
     playHint.className="hint"; playHint.textContent="Leave blank to skip, or pick a diagnosis from the list.";
@@ -254,13 +317,13 @@ function moveAC(dir){
 
 /* ---------- Archive ---------- */
 function renderArchive(){
+  setHash("archive");
   const p = loadProgress();
   const list = $("archList"); list.innerHTML="";
   DIFFS.forEach(diff=>{
     const grp=document.createElement("div"); grp.className="arch-group";
     const h=document.createElement("h3"); h.textContent=LABEL[diff]+" · "+MAX[diff]+" guesses"; grp.appendChild(h);
-    const released = CASES[diff].filter(isReleased)
-      .sort((a,b)=>(b.date||"").localeCompare(a.date||""));   // newest first; future dates hidden
+    const released = releasedOrdered(diff);
     released.forEach(c=>{
       const rec=p[c.id];
       const btn=document.createElement("button"); btn.className="arch";
@@ -293,6 +356,8 @@ $("menu").addEventListener("click",goHome);
 $("toArchive").addEventListener("click",renderArchive);
 $("archBack").addEventListener("click",goHome);
 $("title").addEventListener("click",goHome);
+$("prevCase").addEventListener("click",prevCase);
+$("nextCaseBtn").addEventListener("click",nextCase);
 guessIn.addEventListener("input",updateAC);
 guessIn.addEventListener("keydown",e=>{
   if(e.key==="ArrowDown"){e.preventDefault();moveAC(1);}
@@ -305,4 +370,18 @@ guessIn.addEventListener("keydown",e=>{
 });
 document.addEventListener("click",e=>{ if(!e.target.closest(".inputrow")) hideAC(); });
 
-renderHomeProgress();
+/* ---------- Init: restore from URL hash on load ---------- */
+(function(){
+  const raw = location.hash.slice(1);
+  if(!raw){ renderHomeProgress(); return; }
+  if(raw==="archive"){ renderArchive(); return; }
+  // Hash format: "<diff>-<date>" e.g. "easy-2026-06-28"
+  const dash = raw.indexOf("-");
+  if(dash>0){
+    const diff = raw.slice(0, dash);
+    const date = raw.slice(dash+1);
+    const found = caseByDiffDate(diff, date);
+    if(found){ beginCase(found.diff, found.theCase); return; }
+  }
+  renderHomeProgress();
+})();
