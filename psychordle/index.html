@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Psychordle — Diagnose the Case</title>
+<style>
+  :root{
+    --bg:#0f1226; --panel:#1a1f3d; --panel2:#232a52; --ink:#eef1ff;
+    --muted:#9aa3d4; --accent:#6c7bff; --good:#37c97a; --bad:#ef5b6e;
+    --warn:#f0a93b; --line:#313a6e;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 50% -10%,#1c2350,var(--bg));
+    color:var(--ink); min-height:100vh; line-height:1.45;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:18px 16px 40px}
+  header{text-align:center;margin:6px 0 14px;position:relative}
+  h1{font-size:30px;margin:0;letter-spacing:.5px;cursor:pointer}
+  h1 .psy{color:var(--accent)}
+  .tag{color:var(--muted);font-size:13px;margin-top:4px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .btn{display:block;width:100%;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;color:#fff;background:var(--accent);transition:transform .05s ease,filter .15s,background .15s}
+  .btn:active{transform:scale(.985)}
+  .btn:disabled{opacity:.45;cursor:default}
+  .btn.secondary{background:var(--panel2);border:1px solid var(--line)}
+  .btn.skip{background:var(--panel2);border:1px solid var(--line);color:var(--ink)}
+  .diff-grid{display:grid;gap:10px}
+  .diff{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:left;cursor:pointer;color:var(--ink)}
+  .diff:active{transform:scale(.99)}
+  .diff h3{margin:0 0 4px;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+  .diff .pill{font-size:12px;background:var(--accent);padding:3px 9px;border-radius:999px}
+  .diff.easy .pill{background:var(--good)}
+  .diff.medium .pill{background:var(--warn)}
+  .diff.hard .pill{background:var(--bad)}
+  .diff p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+  .diff .prog{font-size:12px;color:var(--muted);margin-top:7px}
+  .linkrow{display:flex;gap:10px;margin-top:6px}
+  .statusbar{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .dots{display:flex;gap:6px}
+  .dot{width:12px;height:12px;border-radius:50%;background:var(--panel2);border:1px solid var(--line)}
+  .dot.used{background:var(--bad)}
+  .dot.skip{background:var(--warn)}
+  .dot.win{background:var(--good)}
+  .dot.current{box-shadow:0 0 0 3px rgba(108,123,255,.35)}
+  .clue{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:11px 13px;margin:9px 0;animation:fade .35s ease}
+  .clue .lbl{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:700}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .guesslog{margin:8px 0}
+  .gitem{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 11px;margin:6px 0;font-size:14px}
+  .gitem .mark{font-weight:700}
+  .gitem.wrong{border-color:rgba(239,91,110,.5)}
+  .gitem.wrong .mark{color:var(--bad)}
+  .gitem.skip{border-color:rgba(240,169,59,.5)}
+  .gitem.skip .mark{color:var(--warn)}
+  .inputrow{position:relative;margin-top:10px}
+  input[type=text]{width:100%;padding:14px;font-size:16px;border-radius:12px;border:1px solid var(--line);background:#0d1126;color:var(--ink)}
+  input[type=text]:focus{outline:none;border-color:var(--accent)}
+  input[type=text].invalid{border-color:var(--warn)}
+  .ac{position:absolute;left:0;right:0;top:calc(100% + 4px);background:var(--panel2);border:1px solid var(--line);border-radius:12px;max-height:230px;overflow:auto;z-index:20;display:none}
+  .ac.show{display:block}
+  .ac div{padding:11px 13px;font-size:14px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04)}
+  .ac div:last-child{border-bottom:none}
+  .ac div.sel,.ac div:active{background:var(--accent)}
+  .result{text-align:center;padding:6px 0 2px}
+  .result .big{font-size:22px;font-weight:800}
+  .result .big.win{color:var(--good)}
+  .result .big.lose{color:var(--bad)}
+  .answerbox{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px;font-size:14px}
+  .answerbox b{color:var(--accent)}
+  .row2{display:flex;gap:10px;margin-top:12px}
+  .row2 .btn{margin:0}
+  .hint{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+  .hint.warn{color:var(--warn)}
+  .arch-group{margin-bottom:6px}
+  .arch-group h3{font-size:15px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .arch{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;text-align:left;cursor:pointer;color:var(--ink);width:100%}
+  .arch:active{transform:scale(.99)}
+  .arch .meta{font-size:13px;color:var(--muted);margin-top:3px}
+  .arch .badge{font-size:12px;padding:4px 10px;border-radius:999px;white-space:nowrap;background:var(--line);color:var(--ink)}
+  .arch .badge.win{background:var(--good)}
+  .arch .badge.loss{background:var(--bad)}
+  .arch .badge.new{background:var(--accent)}
+  .disclaimer{font-size:11px;color:var(--muted);text-align:center;margin-top:22px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="title"><span class="psy">Psych</span>ordle</h1>
+    <div class="tag">Read the clues. Diagnose the case. Based on DSM-5 criteria.</div>
+  </header>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="card">
+      <div class="statusbar"><span id="todayLabel"></span><span>Pick a level for today's case</span></div>
+      <div class="diff-grid">
+        <button class="diff easy" data-diff="easy">
+          <h3>Easy <span class="pill">5 guesses</span></h3>
+          <p>Mainstream diagnoses and textbook criteria. Clients present with good insight. No subtle traps.</p>
+          <div class="prog" data-prog="easy"></div>
+        </button>
+        <button class="diff medium" data-diff="medium">
+          <h3>Medium <span class="pill">6 guesses</span></h3>
+          <p>Some subtle symptomology and rarer presentations. Closer to real-world clients with good-to-okay insight.</p>
+          <div class="prog" data-prog="medium"></div>
+        </button>
+        <button class="diff hard" data-diff="hard">
+          <h3>Hard <span class="pill">7 guesses</span></h3>
+          <p>Tricky, rare, or culturally-shaped presentations. Okay-to-poor insight — piece it together.</p>
+          <div class="prog" data-prog="hard"></div>
+        </button>
+      </div>
+      <div class="linkrow" style="margin-top:12px">
+        <button class="btn secondary" id="toArchive">Archive — replay any case</button>
+      </div>
+    </div>
+    <p class="disclaimer">For training and entertainment only. Not a diagnostic tool and not a substitute for clinical judgment or professional care.</p>
+  </section>
+
+  <!-- ARCHIVE -->
+  <section id="archive" style="display:none">
+    <div class="card">
+      <div class="statusbar"><span>Archive</span><button class="btn skip" style="width:auto;padding:8px 14px" id="archBack">← Menu</button></div>
+      <p class="hint" style="text-align:left;margin:0 0 6px">Every released case. Pick one to play or replay. Diagnoses stay hidden until you've played a case.</p>
+      <div id="archList"></div>
+    </div>
+  </section>
+
+  <!-- GAME -->
+  <section id="game" style="display:none">
+    <div class="card">
+      <div class="statusbar">
+        <span id="diffLabel"></span>
+        <span class="dots" id="dots"></span>
+      </div>
+      <div id="clues"></div>
+      <div class="guesslog" id="guesslog"></div>
+
+      <div id="playArea">
+        <div class="inputrow">
+          <input type="text" id="guess" placeholder="Type a diagnosis…" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <div class="ac" id="ac"></div>
+        </div>
+        <button class="btn skip" id="submit" style="margin-top:10px">Skip and see next clue</button>
+        <p class="hint" id="playHint">Leave blank to skip, or pick a diagnosis from the list.</p>
+      </div>
+
+      <div id="endArea" style="display:none">
+        <div class="result" id="result"></div>
+        <div class="answerbox" id="answerbox"></div>
+        <div class="row2">
+          <button class="btn skip" id="again">Another case</button>
+          <button class="btn" id="menu">Menu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div id="caseNav" class="wrap" style="display:none;padding-top:0;padding-bottom:0">
+  <div class="linkrow">
+    <button class="btn secondary" id="prevCase">← Previous</button>
+    <button class="btn secondary" id="nextCaseBtn">Next →</button>
+  </div>
+</div>
+
+<script src="puzzles.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
