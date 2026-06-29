@@ -18,15 +18,16 @@
     color:var(--ink); min-height:100vh; line-height:1.45;
   }
   .wrap{max-width:560px;margin:0 auto;padding:18px 16px 40px}
-  header{text-align:center;margin:6px 0 14px}
-  h1{font-size:30px;margin:0;letter-spacing:.5px}
+  header{text-align:center;margin:6px 0 14px;position:relative}
+  h1{font-size:30px;margin:0;letter-spacing:.5px;cursor:pointer}
   h1 .psy{color:var(--accent)}
   .tag{color:var(--muted);font-size:13px;margin-top:4px}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-  .btn{display:block;width:100%;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;color:#fff;background:var(--accent);transition:transform .05s ease,filter .15s}
+  .btn{display:block;width:100%;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;color:#fff;background:var(--accent);transition:transform .05s ease,filter .15s,background .15s}
   .btn:active{transform:scale(.985)}
-  .btn:disabled{opacity:.5;cursor:default}
+  .btn:disabled{opacity:.45;cursor:default}
   .btn.secondary{background:var(--panel2);border:1px solid var(--line)}
+  .btn.skip{background:var(--panel2);border:1px solid var(--line);color:var(--ink)}
   .diff-grid{display:grid;gap:10px}
   .diff{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:left;cursor:pointer;color:var(--ink)}
   .diff:active{transform:scale(.99)}
@@ -36,24 +37,29 @@
   .diff.medium .pill{background:var(--warn)}
   .diff.hard .pill{background:var(--bad)}
   .diff p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+  .diff .prog{font-size:12px;color:var(--muted);margin-top:7px}
+  .linkrow{display:flex;gap:10px;margin-top:6px}
   .statusbar{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:6px}
   .dots{display:flex;gap:6px}
   .dot{width:12px;height:12px;border-radius:50%;background:var(--panel2);border:1px solid var(--line)}
   .dot.used{background:var(--bad)}
+  .dot.skip{background:var(--warn)}
   .dot.win{background:var(--good)}
   .dot.current{box-shadow:0 0 0 3px rgba(108,123,255,.35)}
   .clue{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:11px 13px;margin:9px 0;animation:fade .35s ease}
   .clue .lbl{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:700}
-  .clue .lbl.more{color:var(--warn)}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .guesslog{margin:8px 0}
   .gitem{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 11px;margin:6px 0;font-size:14px}
   .gitem .mark{font-weight:700}
   .gitem.wrong{border-color:rgba(239,91,110,.5)}
   .gitem.wrong .mark{color:var(--bad)}
+  .gitem.skip{border-color:rgba(240,169,59,.5)}
+  .gitem.skip .mark{color:var(--warn)}
   .inputrow{position:relative;margin-top:10px}
   input[type=text]{width:100%;padding:14px;font-size:16px;border-radius:12px;border:1px solid var(--line);background:#0d1126;color:var(--ink)}
   input[type=text]:focus{outline:none;border-color:var(--accent)}
+  input[type=text].invalid{border-color:var(--warn)}
   .ac{position:absolute;left:0;right:0;top:calc(100% + 4px);background:var(--panel2);border:1px solid var(--line);border-radius:12px;max-height:230px;overflow:auto;z-index:20;display:none}
   .ac.show{display:block}
   .ac div{padding:11px 13px;font-size:14px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04)}
@@ -68,35 +74,61 @@
   .row2{display:flex;gap:10px;margin-top:12px}
   .row2 .btn{margin:0}
   .hint{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+  .hint.warn{color:var(--warn)}
+  .arch-group{margin-bottom:6px}
+  .arch-group h3{font-size:15px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .arch{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;text-align:left;cursor:pointer;color:var(--ink);width:100%}
+  .arch:active{transform:scale(.99)}
+  .arch .meta{font-size:13px;color:var(--muted);margin-top:3px}
+  .arch .badge{font-size:12px;padding:4px 10px;border-radius:999px;white-space:nowrap;background:var(--line);color:var(--ink)}
+  .arch .badge.win{background:var(--good)}
+  .arch .badge.loss{background:var(--bad)}
+  .arch .badge.new{background:var(--accent)}
   .disclaimer{font-size:11px;color:var(--muted);text-align:center;margin-top:22px;line-height:1.5}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1><span class="psy">Psych</span>ordle</h1>
+    <h1 id="title"><span class="psy">Psych</span>ordle</h1>
     <div class="tag">Read the clues. Diagnose the case. Based on DSM-5 criteria.</div>
   </header>
 
   <!-- HOME -->
   <section id="home">
     <div class="card">
+      <div class="statusbar"><span id="todayLabel"></span><span>Pick a level for today's case</span></div>
       <div class="diff-grid">
         <button class="diff easy" data-diff="easy">
           <h3>Easy <span class="pill">5 guesses</span></h3>
           <p>Mainstream diagnoses and textbook criteria. Clients present with good insight. No subtle traps.</p>
+          <div class="prog" data-prog="easy"></div>
         </button>
         <button class="diff medium" data-diff="medium">
           <h3>Medium <span class="pill">6 guesses</span></h3>
           <p>Some subtle symptomology and rarer presentations. Closer to real-world clients with good-to-okay insight.</p>
+          <div class="prog" data-prog="medium"></div>
         </button>
         <button class="diff hard" data-diff="hard">
           <h3>Hard <span class="pill">7 guesses</span></h3>
-          <p>Tricky, rare, or culturally-shaped presentations. Sex/gender differences. Okay-to-poor insight — piece it together.</p>
+          <p>Tricky, rare, or culturally-shaped presentations. Okay-to-poor insight — piece it together.</p>
+          <div class="prog" data-prog="hard"></div>
         </button>
+      </div>
+      <div class="linkrow" style="margin-top:12px">
+        <button class="btn secondary" id="toArchive">Archive — replay any case</button>
       </div>
     </div>
     <p class="disclaimer">For training and entertainment only. Not a diagnostic tool and not a substitute for clinical judgment or professional care.</p>
+  </section>
+
+  <!-- ARCHIVE -->
+  <section id="archive" style="display:none">
+    <div class="card">
+      <div class="statusbar"><span>Archive</span><button class="btn skip" style="width:auto;padding:8px 14px" id="archBack">← Menu</button></div>
+      <p class="hint" style="text-align:left;margin:0 0 6px">Every released case. Pick one to play or replay. Diagnoses stay hidden until you've played a case.</p>
+      <div id="archList"></div>
+    </div>
   </section>
 
   <!-- GAME -->
@@ -114,15 +146,15 @@
           <input type="text" id="guess" placeholder="Type a diagnosis…" autocomplete="off" autocapitalize="off" spellcheck="false">
           <div class="ac" id="ac"></div>
         </div>
-        <button class="btn" id="submit" style="margin-top:10px" disabled>Submit guess</button>
-        <p class="hint">Pick from the suggestions. Each wrong guess reveals a more specific clue.</p>
+        <button class="btn skip" id="submit" style="margin-top:10px">Skip and see next clue</button>
+        <p class="hint" id="playHint">Leave blank to skip, or pick a diagnosis from the list.</p>
       </div>
 
       <div id="endArea" style="display:none">
         <div class="result" id="result"></div>
         <div class="answerbox" id="answerbox"></div>
         <div class="row2">
-          <button class="btn secondary" id="again">New case</button>
+          <button class="btn skip" id="again">Another case</button>
           <button class="btn" id="menu">Menu</button>
         </div>
       </div>
@@ -130,236 +162,7 @@
   </section>
 </div>
 
-<script>
-/* ---------- DSM-5 diagnosis list (autocomplete pool) ---------- */
-const DIAGNOSES = [
-  "Major Depressive Disorder","Persistent Depressive Disorder (Dysthymia)",
-  "Disruptive Mood Dysregulation Disorder","Premenstrual Dysphoric Disorder",
-  "Bipolar I Disorder","Bipolar II Disorder","Cyclothymic Disorder",
-  "Generalized Anxiety Disorder","Panic Disorder","Agoraphobia",
-  "Social Anxiety Disorder (Social Phobia)","Specific Phobia","Separation Anxiety Disorder",
-  "Selective Mutism","Obsessive-Compulsive Disorder","Body Dysmorphic Disorder",
-  "Hoarding Disorder","Trichotillomania (Hair-Pulling Disorder)","Excoriation (Skin-Picking) Disorder",
-  "Post-Traumatic Stress Disorder","Acute Stress Disorder","Adjustment Disorder",
-  "Reactive Attachment Disorder","Disinhibited Social Engagement Disorder",
-  "Schizophrenia","Schizoaffective Disorder","Schizophreniform Disorder",
-  "Brief Psychotic Disorder","Delusional Disorder","Schizotypal Personality Disorder",
-  "Attention-Deficit/Hyperactivity Disorder","Autism Spectrum Disorder",
-  "Intellectual Disability","Specific Learning Disorder","Tourette's Disorder",
-  "Anorexia Nervosa","Bulimia Nervosa","Binge-Eating Disorder","Avoidant/Restrictive Food Intake Disorder",
-  "Pica","Rumination Disorder",
-  "Insomnia Disorder","Hypersomnolence Disorder","Narcolepsy","Nightmare Disorder",
-  "Alcohol Use Disorder","Opioid Use Disorder","Stimulant Use Disorder","Cannabis Use Disorder",
-  "Gambling Disorder",
-  "Somatic Symptom Disorder","Illness Anxiety Disorder","Conversion Disorder (Functional Neurological Symptom Disorder)",
-  "Factitious Disorder",
-  "Dissociative Identity Disorder","Dissociative Amnesia","Depersonalization/Derealization Disorder",
-  "Borderline Personality Disorder","Narcissistic Personality Disorder","Antisocial Personality Disorder",
-  "Histrionic Personality Disorder","Avoidant Personality Disorder","Dependent Personality Disorder",
-  "Obsessive-Compulsive Personality Disorder","Paranoid Personality Disorder","Schizoid Personality Disorder",
-  "Oppositional Defiant Disorder","Conduct Disorder","Intermittent Explosive Disorder","Kleptomania","Pyromania",
-  "Delirium","Major Neurocognitive Disorder (Dementia)","Mild Neurocognitive Disorder",
-  "Gender Dysphoria","Insomnia"
-];
-
-/* normalize for matching */
-function norm(s){
-  return s.toLowerCase()
-    .replace(/\(.*?\)/g,"")        // drop parentheticals
-    .replace(/[^a-z0-9 ]/g," ")    // punctuation -> space
-    .replace(/\bdisorder\b/g,"")   // 'disorder' optional
-    .replace(/\s+/g," ").trim();
-}
-
-/* ---------- Cases: one example set of clues per category ---------- */
-const CASES = {
-  easy: [
-    {
-      answer: "Major Depressive Disorder",
-      accept: ["major depressive disorder","major depression","mdd","depression","clinical depression"],
-      clues: [
-        "A 34-year-old client comes in saying they've felt \"empty and heavy\" for about two months. They aren't totally sure why they came today — a friend pushed them to.",
-        "They describe low, sad mood nearly every day, and say they've lost interest in playing guitar and seeing friends — things that used to bring them joy.",
-        "They sleep 10–11 hours but still feel exhausted, struggle to concentrate at work, and voice feelings of worthlessness and guilt.",
-        "Their appetite is down with unintentional weight loss. No history of elevated or expansive mood, no substance use, and no medical cause on workup.",
-        "Five-plus symptoms — including depressed mood and loss of interest — nearly every day for over two weeks, causing clear impairment. The client has good insight that this is a change from their usual self."
-      ],
-      teach: "A textbook presentation: ≥5 symptoms (incl. depressed mood or anhedonia) for ≥2 weeks, functional impairment, no manic/hypomanic history."
-    }
-  ],
-  medium: [
-    {
-      answer: "Bipolar II Disorder",
-      accept: ["bipolar ii","bipolar 2","bipolar two","bipolar ii disorder"],
-      clues: [
-        "A 27-year-old comes in seeking help for recurring depression that they say \"antidepressants never quite fix.\"",
-        "They report several depressive episodes over the past few years — low mood, fatigue, hopelessness, and trouble getting through the workday.",
-        "Asked about their better stretches, they mention occasional periods of feeling unusually energized, needing little sleep yet feeling rested, and being very productive — \"just my good weeks.\"",
-        "During those stretches others noticed they were more talkative and started lots of projects. They were never hospitalized and kept functioning.",
-        "These elevated periods last about 4–5 days and are a clear change from their usual self, but cause no marked impairment and no psychotic features.",
-        "Pattern: at least one hypomanic episode plus at least one major depressive episode, and never a full manic episode. Insight is okay — they tend to minimize the \"up\" periods as just feeling good."
-      ],
-      teach: "Frequently misdiagnosed as unipolar depression because clients rarely report hypomania as a problem. Hallmark: hypomania + MDE, no full mania."
-    }
-  ],
-  hard: [
-    {
-      answer: "Attention-Deficit/Hyperactivity Disorder",
-      accept: ["adhd","attention deficit hyperactivity","attention deficit hyperactivity disorder","add","attention deficit disorder","adhd inattentive"],
-      clues: [
-        "A 31-year-old woman is referred after seeking treatment for \"anxiety\" that hasn't responded well to several rounds of therapy.",
-        "She feels chronically overwhelmed and behind, and is ashamed she \"can't keep it together\" the way her peers seem to.",
-        "She describes a lifelong pattern of losing things, missing deadlines, and difficulty sustaining attention on paperwork — but she's bright and verbal and earned good grades through enormous effort.",
-        "She rarely looks outwardly hyperactive. Instead she describes internal restlessness and \"a brain that won't slow down.\" As a child she was called a quiet daydreamer, never a behavior problem.",
-        "The inattentive pattern has been present for years across both home and work and clearly predates the anxiety, which looks secondary to years of struggling and self-blame.",
-        "Consider sex/gender differences: girls and women far more often show the inattentive, non-disruptive presentation, so the condition is missed in childhood and later mislabeled as anxiety or depression.",
-        "Criteria: ≥6 inattentive symptoms, several present before age 12, across ≥2 settings, causing impairment, not better explained by another disorder. Insight is limited — she blames her character rather than recognizing a treatable, lifelong condition."
-      ],
-      teach: "A bias-check case: an adult woman with inattentive-type ADHD masked by intelligence and effort, commonly misdiagnosed as anxiety. Symptoms must onset before age 12 and span multiple settings."
-    }
-  ]
-};
-
-const MAX = { easy:5, medium:6, hard:7 };
-const LABEL = { easy:"Easy", medium:"Medium", hard:"Hard" };
-
-/* ---------- State ---------- */
-let state = null;
-
-/* ---------- Element refs ---------- */
-const $ = id => document.getElementById(id);
-const homeEl=$("home"), gameEl=$("game");
-const cluesEl=$("clues"), dotsEl=$("dots"), logEl=$("guesslog");
-const guessIn=$("guess"), acEl=$("ac"), submitBtn=$("submit");
-const playArea=$("playArea"), endArea=$("endArea"), resultEl=$("result"), answerEl=$("answerbox");
-
-/* ---------- Start ---------- */
-function startGame(diff){
-  const pool = CASES[diff];
-  const theCase = pool[Math.floor(Math.random()*pool.length)];
-  state = { diff, max:MAX[diff], theCase, revealed:1, guesses:[], over:false };
-  $("diffLabel").textContent = LABEL[diff] + " · " + state.max + " guesses";
-  homeEl.style.display="none";
-  gameEl.style.display="block";
-  playArea.style.display="block";
-  endArea.style.display="none";
-  guessIn.value=""; submitBtn.disabled=true; hideAC();
-  render();
-  window.scrollTo(0,0);
-}
-
-function render(){
-  // dots
-  dotsEl.innerHTML="";
-  for(let i=0;i<state.max;i++){
-    const d=document.createElement("span");
-    d.className="dot";
-    const g=state.guesses[i];
-    if(g==="win") d.classList.add("win");
-    else if(g==="wrong") d.classList.add("used");
-    if(i===state.guesses.length && !state.over) d.classList.add("current");
-    dotsEl.appendChild(d);
-  }
-  // clues
-  cluesEl.innerHTML="";
-  for(let i=0;i<state.revealed;i++){
-    const c=document.createElement("div");
-    c.className="clue";
-    const more = i>0;
-    c.innerHTML='<div class="lbl'+(more?' more':'')+'">Clue '+(i+1)+(more?' · more specific':'')+'</div>'+escapeHtml(state.theCase.clues[i]);
-    cluesEl.appendChild(c);
-  }
-  // log
-  logEl.innerHTML="";
-  state.guessLabels && state.guessLabels.forEach(g=>{
-    const it=document.createElement("div");
-    it.className="gitem wrong";
-    it.innerHTML='<span class="mark">✕</span><span>'+escapeHtml(g)+'</span>';
-    logEl.appendChild(it);
-  });
-}
-
-/* ---------- Guess handling ---------- */
-function submitGuess(){
-  if(state.over) return;
-  const raw = guessIn.value.trim();
-  if(!raw) return;
-  const correct = state.theCase.accept.includes(norm(raw)) || norm(raw)===norm(state.theCase.answer);
-  if(correct){ endRound(true); return; }
-
-  // wrong
-  (state.guessLabels = state.guessLabels||[]).push(raw);
-  state.guesses.push("wrong");
-  guessIn.value=""; submitBtn.disabled=true; hideAC();
-
-  if(state.guesses.length >= state.max){ endRound(false); return; }
-  if(state.revealed < state.theCase.clues.length) state.revealed++;
-  render();
-  const last=cluesEl.lastElementChild; if(last) last.scrollIntoView({behavior:"smooth",block:"center"});
-}
-
-function endRound(won){
-  state.over=true;
-  if(won){ state.guesses.push("win"); }
-  render();
-  playArea.style.display="none";
-  endArea.style.display="block";
-  resultEl.innerHTML = won
-    ? '<div class="big win">Correct! 🎉</div><div class="hint">Solved with '+(state.guesses.filter(x=>x==="wrong").length)+' wrong guess(es).</div>'
-    : '<div class="big lose">Out of guesses</div>';
-  answerEl.innerHTML = '<div>Diagnosis: <b>'+escapeHtml(state.theCase.answer)+'</b></div>'
-    + '<div style="margin-top:8px;color:var(--muted)">'+escapeHtml(state.theCase.teach)+'</div>';
-  endArea.scrollIntoView({behavior:"smooth",block:"center"});
-}
-
-/* ---------- Autocomplete ---------- */
-let acItems=[], acIdx=-1;
-function updateAC(){
-  const q=norm(guessIn.value);
-  submitBtn.disabled = guessIn.value.trim()==="";
-  if(q.length<2){ hideAC(); return; }
-  acItems = DIAGNOSES.filter(d=>norm(d).includes(q)).slice(0,8);
-  if(!acItems.length){ hideAC(); return; }
-  acIdx=-1;
-  acEl.innerHTML="";
-  acItems.forEach((d,i)=>{
-    const el=document.createElement("div");
-    el.textContent=d;
-    el.addEventListener("mousedown",e=>{e.preventDefault();chooseAC(i);});
-    acEl.appendChild(el);
-  });
-  acEl.classList.add("show");
-}
-function chooseAC(i){
-  guessIn.value=acItems[i];
-  hideAC(); submitBtn.disabled=false; guessIn.focus();
-}
-function hideAC(){ acEl.classList.remove("show"); acEl.innerHTML=""; acItems=[]; acIdx=-1; }
-function moveAC(dir){
-  if(!acItems.length) return;
-  acIdx=(acIdx+dir+acItems.length)%acItems.length;
-  [...acEl.children].forEach((c,i)=>c.classList.toggle("sel",i===acIdx));
-  acEl.children[acIdx].scrollIntoView({block:"nearest"});
-}
-
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-
-/* ---------- Wiring ---------- */
-document.querySelectorAll(".diff").forEach(b=>b.addEventListener("click",()=>startGame(b.dataset.diff)));
-submitBtn.addEventListener("click",submitGuess);
-$("again").addEventListener("click",()=>startGame(state.diff));
-$("menu").addEventListener("click",()=>{gameEl.style.display="none";homeEl.style.display="block";window.scrollTo(0,0);});
-guessIn.addEventListener("input",updateAC);
-guessIn.addEventListener("keydown",e=>{
-  if(e.key==="ArrowDown"){e.preventDefault();moveAC(1);}
-  else if(e.key==="ArrowUp"){e.preventDefault();moveAC(-1);}
-  else if(e.key==="Enter"){
-    e.preventDefault();
-    if(acIdx>=0){chooseAC(acIdx);}
-    else submitGuess();
-  } else if(e.key==="Escape"){hideAC();}
-});
-document.addEventListener("click",e=>{ if(!e.target.closest(".inputrow")) hideAC(); });
-</script>
+<script src="puzzles.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
