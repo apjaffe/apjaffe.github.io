@@ -381,6 +381,102 @@ const CASES = {
         "Multiple motor tics and at least one vocal tic — present at some point during the illness, though not necessarily simultaneously — first appearing before age 18, lasting more than a year, not attributable to substances or another medical condition."
       ],
       teach:"Tourette's requires both multiple motor tics and at least one vocal tic, lasting more than one year (though tic type, frequency, and location can shift over time). Tics are typically preceded by a premonitory sensory urge and can be transiently suppressed — at the cost of mounting discomfort that demands eventual release."
+    },
+    {
+      id:"easy-pdd", date:"2026-06-29", answer:"Persistent Depressive Disorder",
+      accept:["persistent depressive disorder","dysthymia","pdd","persistent depressive disorder dysthymia","chronic depression"],
+      clues:[
+        "A 30-year-old says they don't remember the last time they felt genuinely good — \"I think this is just my personality.\" They're only here because their partner insisted.",
+        "For at least two years they've had low mood more days than not, alongside poor appetite, low energy, poor concentration, and low self-esteem.",
+        "They've never had a period of two months without these symptoms during that time. There's no history of mania or hypomania, and no single event triggered it — it's just been a low hum for years.",
+        "They function — they hold a job and keep up appearances — but describe their life as \"gray,\" and say they assumed everyone felt this way.",
+        "Depressed mood for most of the day, more days than not, for at least two years, with at least two additional symptoms (appetite or sleep change, low energy, poor concentration, low self-esteem, or hopelessness), without a symptom-free period longer than two months. Good insight once it's named, though they hadn't recognized it as anything but their baseline."
+      ],
+      teach:"PDD requires ≥2 years of depressed mood (1 year in children/adolescents) without a 2-month symptom-free gap, and can co-occur with MDD episodes ('double depression'). Its chronicity often leads patients to mistake it for personality rather than a treatable condition."
+    },
+    {
+      id:"easy-bulimia", date:"2026-06-30", answer:"Bulimia Nervosa",
+      accept:["bulimia nervosa","bulimia","bn"],
+      clues:[
+        "A 21-year-old comes in at her roommate's suggestion. Her weight is in the normal range, so she's surprised anyone is concerned.",
+        "She describes recurrent episodes, a few times a week, of eating a large amount of food in a short period while feeling out of control — followed by self-induced vomiting to \"undo\" it.",
+        "This pattern has gone on for about four months. She also uses laxatives occasionally and exercises compulsively the day after an episode, and dental enamel erosion was noted at a recent checkup.",
+        "Her self-evaluation is heavily tied to her shape and weight; she describes her worth as \"basically a number on the scale.\" She knows the cycle is unhealthy and wants it to stop, but feels she can't control the urges once they start.",
+        "Recurrent episodes of binge eating paired with recurrent inappropriate compensatory behavior (self-induced vomiting, laxative use, excessive exercise), occurring at least once a week for three months, with self-evaluation unduly influenced by body shape and weight — at a normal or near-normal body weight. Good insight that the behavior is a problem."
+      ],
+      teach:"Bulimia is distinguished from anorexia binge-purge subtype by body weight: bulimia occurs at normal/near-normal weight. Frequency threshold is ≥1x/week for 3 months. Dental erosion and parotid gland swelling are physical clues to purging."
+    },
+    {
+      id:"easy-bed", date:"2026-07-01", answer:"Binge-Eating Disorder",
+      accept:["binge eating disorder","bed","binge-eating disorder"],
+      clues:[
+        "A 36-year-old comes in distressed about his eating. \"I just feel out of control around food sometimes, and I hate myself after,\" he says.",
+        "About twice a week he eats a very large amount of food in a short period, feeling unable to stop. He often eats alone afterward out of embarrassment.",
+        "During these episodes he eats much faster than normal, eats until uncomfortably full, and eats large amounts even when not physically hungry.",
+        "He's never vomited, used laxatives, or exercised to compensate — there's just the binge, followed by intense guilt and shame.",
+        "Recurrent binge eating episodes (rapid eating, eating past fullness, eating alone due to embarrassment, eating without hunger, guilt afterward) at least once a week for three months, with marked distress, and without any compensatory behaviors."
+      ],
+      teach:"BED's key differentiator from bulimia is the absence of compensatory behavior. It's the most common eating disorder and can occur across the weight spectrum — diagnosis hinges on the binge pattern and distress, not on weight."
+    },
+    {
+      id:"easy-oud", date:"2026-07-02", answer:"Opioid Use Disorder",
+      accept:["opioid use disorder","oud","opioid dependence","opioid addiction"],
+      clues:[
+        "A 33-year-old comes in after a coworker noticed he'd been \"off\" lately. He was prescribed oxycodone after a back injury eight months ago and never really stopped.",
+        "He takes more than prescribed, has run out early multiple months in a row, and has tried to cut back twice without success.",
+        "He spends a notable amount of time obtaining pills, sometimes from a second doctor, and says he needs roughly twice his original dose to get the same relief.",
+        "He missed his cousin's wedding because he didn't want to be without his supply, and recently took a lower-paying job so he could stay closer to home, near medication he keeps hidden.",
+        "When he tried stopping for two days, he had nausea, sweating, diarrhea, and intense cravings. A pattern of opioid use causing significant impairment over the past year: tolerance, withdrawal, using more than intended, failed attempts to cut down, excessive time spent obtaining the drug, and activities given up in favor of use."
+      ],
+      teach:"OUD criteria mirror other substance use disorders: tolerance, withdrawal, loss of control, and functional consequences. Tolerance/withdrawal alone in a patient taking opioids exactly as prescribed for pain doesn't equal OUD — the additional criteria (loss of control, time spent, activities given up) are what tip the diagnosis."
+    },
+    {
+      id:"easy-hoarding", date:"2026-07-03", answer:"Hoarding Disorder",
+      accept:["hoarding disorder","hoarding"],
+      clues:[
+        "A 58-year-old is referred after a building inspector found their apartment unsafe to enter. The client insists they're \"just frugal\" and everything has a use.",
+        "They report persistent difficulty discarding possessions, regardless of actual value, because of a perceived need to save them or distress at the thought of letting go.",
+        "Stacks of newspapers, broken appliances, and unopened mail now cover most surfaces and block two doorways. They haven't had guests over in years out of embarrassment.",
+        "Family members who've tried to help clean in the past describe the client becoming distressed, almost panicked, when items were removed without their input.",
+        "This has built up gradually over roughly a decade and now poses a genuine safety and fire-code hazard. Persistent difficulty discarding possessions due to a perceived need to save them, resulting in clutter that congests living areas and compromises their intended use, causing significant distress or impairment."
+      ],
+      teach:"Hoarding disorder was split out from OCD in DSM-5. Key features: difficulty discarding (not compulsive acquiring alone), clutter that actually obstructs living spaces, and distress tied to discarding rather than to the clutter itself."
+    },
+    {
+      id:"easy-bdd", date:"2026-07-04", answer:"Body Dysmorphic Disorder",
+      accept:["body dysmorphic disorder","bdd","body dysmorphia"],
+      clues:[
+        "A 24-year-old asks for a referral to a plastic surgeon, convinced their nose is \"deformed.\" Photos show a nose well within normal range.",
+        "They report checking mirrors dozens of times a day, and other times avoiding mirrors entirely because the sight is too distressing. They've started wearing a hat low on their face.",
+        "They estimate spending over three hours a day thinking about their nose. They've turned down two job interviews and stopped seeing friends in person, communicating mainly by text instead.",
+        "They've already seen two surgeons who declined to operate, telling them there was nothing to fix — but the client felt unheard and is now researching surgeons abroad.",
+        "Preoccupation with a perceived flaw in physical appearance that is not observable or appears slight to others, with repetitive behaviors (mirror checking, camouflaging) or mental acts in response, causing significant distress and functional impairment. Poor insight — convinced the flaw is real and severe."
+      ],
+      teach:"BDD insight ranges from good to delusional (DSM-5 allows specifying 'with absent insight/delusional beliefs'). Repeated cosmetic consultations without satisfaction is a hallmark pattern; surgery rarely resolves the preoccupation."
+    },
+    {
+      id:"easy-bipolar2", date:"2026-07-05", answer:"Bipolar II Disorder",
+      accept:["bipolar ii disorder","bipolar 2 disorder","bipolar ii","bipolar 2"],
+      clues:[
+        "A 27-year-old comes in primarily for depression. Three separate depressive episodes in the past two years left her barely able to get out of bed.",
+        "Between those, she describes week-long stretches of high energy, needing only four hours of sleep, talking fast, and taking on far more projects than usual.",
+        "During those high periods she's never been hospitalized, never had psychosis, and colleagues mostly just describe her as \"extra productive\" — friends notice the shift, but it's never derailed her life.",
+        "She didn't think to mention these periods at first because, to her, they felt like the good weeks, not a problem worth bringing up.",
+        "At least one major depressive episode and at least one hypomanic episode — elevated mood with increased activity/energy lasting at least four days, noticeable to others but not severe enough to cause marked impairment or require hospitalization. No history of a full manic episode."
+      ],
+      teach:"Bipolar II requires hypomania (≥4 days, noticeable but not impairing) plus at least one major depressive episode — never a full manic episode (that would make it Bipolar I). Patients often present for depression and don't volunteer hypomanic periods unprompted because they don't feel like a problem."
+    },
+    {
+      id:"easy-excoriation", date:"2026-07-06", answer:"Excoriation (Skin-Picking) Disorder",
+      accept:["excoriation disorder","skin picking disorder","excoriation (skin-picking) disorder","dermatillomania","skin-picking disorder"],
+      clues:[
+        "A 26-year-old comes in wearing long sleeves despite the summer heat. She mentions almost in passing that she's \"a picker\" and has been since her teens.",
+        "She describes picking at minor skin imperfections — small bumps, healing scabs — until they bleed, especially during stressful moments or while watching TV.",
+        "She's tried multiple times to stop on her own and has covered her arms for over a year because of visible scarring. The picking sessions can last over an hour and she often doesn't notice time passing.",
+        "She feels real shame about it and has turned down a pool party invitation because of the scars, but the urge to pick, once it starts, is very hard to interrupt.",
+        "Recurrent skin picking resulting in lesions, with repeated attempts to decrease or stop the behavior, causing clinically significant distress or impairment — not attributable to a substance or another medical or dermatological condition."
+      ],
+      teach:"Excoriation disorder belongs to the OCD-related cluster, alongside trichotillomania. It's reported more often in clinical samples of women, partly because visible scarring carries different social stakes — though the underlying urge-driven mechanism doesn't differ by sex. Distinguish from a dermatological condition by the repetitive, urge-driven self-inflicted pattern."
     }
   ],
   medium: [
@@ -672,6 +768,110 @@ const CASES = {
         "Ruling out: conduct disorder (no serious aggression, property destruction, or major social norm violations). The behaviors are developmentally inappropriate in frequency and severity and causing impairment at both school and home."
       ],
       teach:"ODD is diagnosed when defiant, hostile behavior meets threshold severity, frequency (norms differ by age), and duration criteria and causes impairment — not simply a description of difficult temperament. The three clusters are: angry/irritable mood, argumentative/defiant behavior, and vindictiveness. Conduct disorder is excluded by the absence of serious violations."
+    },
+    {
+      id:"med-mdd-peripartum", date:"2026-06-29", answer:"Major Depressive Disorder, With Peripartum Onset",
+      accept:["major depressive disorder with peripartum onset","mdd with peripartum onset","postpartum depression","peripartum depression","postpartum depression mdd"],
+      clues:[
+        "A 31-year-old comes in six weeks after delivering her first child, brought by her husband who says \"this isn't just being tired.\"",
+        "She describes persistent low mood, tearfulness, and overwhelming guilt about not \"bonding\" the way she expected to. She has trouble sleeping even when the baby sleeps.",
+        "She's lost interest in things she used to enjoy, eats very little, and struggles to concentrate enough to follow simple conversations. She describes feeling like a fraud as a mother.",
+        "She denies any thoughts of harming the baby, though she does have passive thoughts that her family would be better off without her. There's no history of mood episodes before this pregnancy.",
+        "Her husband mentions she briefly seemed almost too cheerful and energized in the first 48 hours after birth, but that quickly gave way to the current state — there's no ongoing elevated mood, just this persistent low one.",
+        "Five or more depressive symptoms — including depressed mood and loss of interest — present nearly every day, with onset during pregnancy or within four weeks postpartum, causing significant impairment. No manic or hypomanic episode. Limited insight into the severity, attributing it to \"just being a new mom.\""
+      ],
+      teach:"The peripartum onset specifier applies when a major depressive episode begins during pregnancy or within 4 weeks postpartum (clinically, the risk window is often considered up to a year). It must be distinguished from 'baby blues' (mild, self-limited, <2 weeks) and from postpartum psychosis (a more acute, often manic-spectrum emergency)."
+    },
+    {
+      id:"med-pica", date:"2026-06-30", answer:"Pica",
+      accept:["pica"],
+      clues:[
+        "A 24-year-old who is 22 weeks pregnant is referred by her OB after mentioning, almost sheepishly, a craving she didn't think was a big deal.",
+        "For about two months she has been regularly eating ice in large quantities, and more recently has started eating small amounts of laundry starch and clay from her garden.",
+        "She knows these aren't food, has no intention of stopping, and describes a strong urge that intensifies when she's stressed. Lab work shows iron-deficiency anemia.",
+        "This isn't a single odd snack — it's been persistent, deliberate consumption of these non-nutritive substances multiple times a week for over a month.",
+        "Her culture has no tradition of eating clay or starch (which can be culturally sanctioned in some contexts and wouldn't itself warrant a diagnosis), and the behavior is clearly outside what's developmentally expected for an adult.",
+        "Persistent eating of non-nutritive, non-food substances for at least one month, inappropriate to developmental level, not part of a culturally supported or socially normative practice, and severe enough to warrant clinical attention — can co-occur with iron or zinc deficiency, and is notably more common during pregnancy."
+      ],
+      teach:"Pica can occur at any age, including adulthood, and is notably associated with pregnancy and iron/zinc deficiency. The DSM-5 explicitly excludes culturally sanctioned practices (e.g., some traditional clay consumption) — context matters for the diagnosis."
+    },
+    {
+      id:"med-brief-psychotic", date:"2026-07-01", answer:"Brief Psychotic Disorder",
+      accept:["brief psychotic disorder"],
+      clues:[
+        "A 35-year-old is brought to the ER by her brother after two days of bizarre behavior following the sudden death of her husband one week ago.",
+        "She has been telling family that the television is sending her coded messages and that she briefly saw her late husband standing in the kitchen. Her speech is tangential and hard to follow.",
+        "She has no psychiatric history, no substance use on tox screen, and no medical abnormality on workup. Before this week, family describes her as sharp and entirely well.",
+        "The symptoms appeared abruptly, within about 48 hours, with no preceding gradual decline — a stark, sudden break from her usual functioning.",
+        "By day six she is already showing signs of returning to her baseline, with the team optimistic this will resolve well within a month given the sudden onset and clear stressor.",
+        "One or more of delusions, hallucinations, or disorganized speech, with sudden onset, lasting at least one day but less than one month, with eventual full return to premorbid functioning — often triggered by a significant stressor."
+      ],
+      teach:"Brief psychotic disorder is defined by its short duration (1 day–1 month) and full return to baseline functioning — distinguishing it from schizophreniform disorder (up to 6 months) and schizophrenia. A clear precipitating stressor (here, sudden bereavement) is a recognized subtype specifier."
+    },
+    {
+      id:"med-mdd-seasonal", date:"2026-07-02", answer:"Major Depressive Disorder, With Seasonal Pattern",
+      accept:["major depressive disorder with seasonal pattern","seasonal affective disorder","sad seasonal","seasonal depression","mdd with seasonal pattern"],
+      clues:[
+        "A 39-year-old comes in for the third year in a row, every November, with what she calls \"the same old slump.\"",
+        "She describes low energy, increased sleep (up to 11 hours), strong carbohydrate cravings, and weight gain that begins reliably as days shorten in the fall.",
+        "By February or March each year, without any treatment, her mood and energy return to normal — and stay normal through spring and summer.",
+        "This pattern has repeated for the past three winters in a row, with no depressive episodes occurring outside of the fall/winter months during that time.",
+        "She denies any springtime or summertime depressive episodes in this period, and the timing has been so reliable that she now stocks up on her favorite comfort shows every October in anticipation.",
+        "Major depressive episodes with onset and remission at characteristic times of year (fall/winter onset, spring remission) for at least two consecutive years, with no non-seasonal episodes during that period, and seasonal episodes substantially outnumbering any non-seasonal ones over the patient's lifetime."
+      ],
+      teach:"The seasonal pattern specifier requires a regular temporal relationship over at least two years, with seasonal episodes substantially outnumbering non-seasonal ones lifetime. Hypersomnia, carbohydrate craving, and weight gain (atypical features) are common in the fall/winter pattern, contrasting with classic insomnia/appetite-loss presentations."
+    },
+    {
+      id:"med-narcolepsy", date:"2026-07-03", answer:"Narcolepsy",
+      accept:["narcolepsy"],
+      clues:[
+        "A 20-year-old college student is referred after falling asleep in three different classes in one week, despite getting what she considers a full night's sleep.",
+        "She describes irresistible sleep attacks several times a week, lasting under 15 minutes, after which she feels temporarily refreshed.",
+        "Twice in the last month, she's had moments of sudden muscle weakness in her face and knees right after a friend told a joke that made her laugh hard, though she stayed fully conscious.",
+        "She also describes vivid, sometimes frightening hallucinations right as she's falling asleep, and once woke up completely unable to move for almost a minute despite being fully alert.",
+        "A sleep study shows she enters REM sleep abnormally quickly after falling asleep, and a follow-up daytime test captures multiple short sleep-onset REM periods.",
+        "Recurrent periods of an irrepressible need to sleep or lapsing into sleep, occurring at least three times per week over three months, with episodes of cataplexy triggered by strong emotion and supportive findings on a sleep study (short REM latency, sleep-onset REM periods)."
+      ],
+      teach:"Cataplexy — sudden, brief loss of muscle tone triggered by strong emotion (often laughter), with preserved consciousness — is the most specific feature of narcolepsy. Hypnagogic hallucinations and sleep paralysis frequently co-occur but aren't required for diagnosis if cataplexy or supportive sleep study findings are present."
+    },
+    {
+      id:"med-kleptomania", date:"2026-07-04", answer:"Kleptomania",
+      accept:["kleptomania"],
+      clues:[
+        "A 42-year-old attorney is referred by her lawyer after a shoplifting arrest — the third in two years, each time for inexpensive items she didn't need and could easily afford.",
+        "She describes a building tension before each theft and a wave of relief, almost euphoria, the moment the item is in her bag — followed quickly by intense shame.",
+        "She doesn't plan the thefts in advance, doesn't need the items, often discards them afterward, and isn't doing it out of anger or to make a statement.",
+        "She's tried to stop after each arrest, has hidden this from her family for over a decade, and is bewildered by her own behavior given that she has the means to simply buy what she takes.",
+        "There's no other criminal history, no conduct disorder history, and no manic episode underway — outside of these specific incidents her judgment and functioning are entirely intact.",
+        "Recurrent failure to resist impulses to steal objects not needed for personal use or monetary value, with rising tension before the act and relief or gratification during it, not committed out of anger, revenge, or in response to a delusion, and not better explained by conduct disorder or mania."
+      ],
+      teach:"Kleptomania is an impulse-control disorder, not a property crime motivated by need or ideology — the tension-relief cycle and theft of unneeded, often low-value items are the diagnostic core. It's frequently concealed for years out of shame, complicating detection."
+    },
+    {
+      id:"med-rumination", date:"2026-07-05", answer:"Rumination Disorder",
+      accept:["rumination disorder","rumination syndrome"],
+      clues:[
+        "A 26-year-old is referred after extensive GI workup found nothing wrong, despite months of effortless regurgitation after nearly every meal.",
+        "He describes bringing food back up within minutes of eating, without nausea, retching, or any sign of disgust — he then either re-chews and re-swallows it or spits it out.",
+        "This has been happening almost daily for about four months. He denies trying to control his weight and isn't restricting intake beforehand or purging on purpose afterward.",
+        "He's lost some weight as a side effect, but says this isn't something he's doing on purpose — it just happens, often without him fully noticing until food is already back in his mouth.",
+        "He has no other GI diagnosis (his endoscopy and pH study were unremarkable), and the regurgitation isn't triggered by anxiety attacks or another medical condition.",
+        "Repeated regurgitation of food over at least one month — re-chewed, re-swallowed, or spit out — not attributable to a GI or other medical condition, not occurring exclusively during another eating disorder, and not part of intentional purging behavior."
+      ],
+      teach:"Rumination disorder can occur at any age and is often misdiagnosed as a GI condition (GERD) or bulimia. The key distinction from bulimia: regurgitation is effortless and not preceded by binge eating or followed by intentional purging — it's a learned, often unconscious motor pattern."
+    },
+    {
+      id:"med-major-ncd", date:"2026-07-06", answer:"Major Neurocognitive Disorder (Dementia)",
+      accept:["major neurocognitive disorder","major neurocognitive disorder dementia","dementia"],
+      clues:[
+        "A 74-year-old is brought in by his daughter, who says he got lost driving to a grocery store he's been to weekly for twenty years.",
+        "Over the past two years he's had progressive decline in memory — repeating questions, forgetting recent conversations — along with new difficulty managing his finances, which his daughter has quietly taken over.",
+        "He's also had trouble following multi-step recipes he used to make from memory, and recently got confused trying to use the TV remote, a device he's used for decades.",
+        "The decline has been gradual, not sudden, with no fluctuating course and no recent acute illness, medication change, or infection that would point elsewhere.",
+        "He's no longer able to live independently — his daughter has had to take over bill paying, medication management, and driving entirely. He has some awareness that \"things aren't right\" but minimizes how much help he now needs.",
+        "Significant decline from a previous level in one or more cognitive domains (here, memory and executive function), confirmed by both report and testing, severe enough to interfere with independence in everyday activities — gradual onset and progressive course, not better explained by delirium or another mental disorder."
+      ],
+      teach:"Major NCD (the DSM-5 term replacing 'dementia') requires interference with independence — Mild NCD involves cognitive decline without loss of independence. Gradual onset and progressive course distinguish it from delirium (acute, fluctuating); a thorough workup should still rule out reversible causes."
     }
   ],
   hard: [
@@ -996,6 +1196,118 @@ const CASES = {
         "Two or more active-phase schizophrenia symptoms — including at least one of delusions, hallucinations, or disorganized speech — present for at least one month, with total episode duration (including prodromal and residual phases) less than six months. Good premorbid functioning and absence of blunted affect are associated with a more favorable prognosis."
       ],
       teach:"Schizophreniform disorder is essentially schizophrenia that has not yet met the 6-month duration criterion. If symptoms persist past 6 months total — including prodromal and residual phases — the diagnosis converts to schizophrenia. Good premorbid functioning and abrupt rather than insidious onset are positive prognostic indicators."
+    },
+    {
+      id:"hard-bipolar-psychotic", date:"2026-06-29", answer:"Bipolar I Disorder, With Psychotic Features",
+      accept:["bipolar i disorder with psychotic features","bipolar 1 with psychotic features","bipolar i with psychotic features","bipolar disorder with psychosis"],
+      clues:[
+        "A 26-year-old musician is brought to the ER by his bandmates after a chaotic week. They say \"he's just been on one of his creative streaks,\" but this time it's gone somewhere different.",
+        "He hasn't slept more than two hours a night for eight days. He's convinced he's been selected to write an album that will \"realign global consciousness,\" and has been recording nonstop, calling labels at 3am.",
+        "In the past 48 hours he's also started saying that the radio is responding directly to his thoughts and that a famous producer has been secretly communicating with him through song lyrics on the street.",
+        "He's irritable when challenged, has spent thousands on studio equipment, and his speech is so rapid and tangential that his bandmates can barely follow him.",
+        "He has a history of one depressive episode two years ago, but nothing like this — and no substance use is found on tox screen. A thyroid panel and other medical workup are unremarkable.",
+        "The grandiosity here has crossed a line: it's not just confident self-belief but a fixed, false conviction (the radio responding to his thoughts) that persists regardless of evidence against it.",
+        "A manic episode of over a week's duration — elevated mood, decreased need for sleep, grandiosity, pressured speech, excessive spending — accompanied by delusions and possible hallucinations occurring exclusively during the mood episode, with this severity requiring hospitalization."
+      ],
+      teach:"The psychotic features specifier applies when delusions or hallucinations occur during a manic or depressive episode. Distinguishing from schizoaffective disorder hinges on timing: here, psychotic symptoms appear only within the manic episode, not also during periods of stable mood."
+    },
+    {
+      id:"hard-dmdd", date:"2026-06-30", answer:"Disruptive Mood Dysregulation Disorder",
+      accept:["disruptive mood dysregulation disorder","dmdd"],
+      clues:[
+        "A 10-year-old boy is referred by his school after his fourth \"blow-up\" this month — over what staff describe as minor frustrations, like losing a board game.",
+        "His mother says he seems angry and irritable almost every day, even between the outbursts, which she describes as \"always simmering, like he's one wrong word away from exploding.\"",
+        "The outbursts themselves are severe — yelling, throwing objects, occasionally hitting walls — occurring three or more times a week, out of proportion to the trigger, and present since age 7.",
+        "His teacher initially wondered about bipolar disorder given the intensity of his outbursts, but there's never been a distinct period of elevated or euphoric mood, grandiosity, or decreased need for sleep — just persistent irritability punctuated by rage.",
+        "The pattern shows up consistently both at school and at home, and his parents say there's never really a \"good mood\" baseline anymore — even his calm moments have an edge to them.",
+        "Ruling out: no manic or hypomanic episodes ever, which is the critical exclusion here — that absence is what keeps this from being a bipolar diagnosis despite the outburst severity.",
+        "Severe recurrent temper outbursts grossly out of proportion to the situation, occurring three or more times weekly, with persistently irritable or angry mood between outbursts most of the day nearly every day, present for over a year across multiple settings, with onset before age 10 and no history of a manic or hypomanic episode."
+      ],
+      teach:"DMDD was added in DSM-5 partly to curb overdiagnosis of pediatric bipolar disorder in children with chronic irritability rather than episodic mania. The absence of a distinct manic/hypomanic episode is the key differentiator — irritability alone, however severe, is not mania."
+    },
+    {
+      id:"hard-id", date:"2026-07-01", answer:"Intellectual Disability",
+      accept:["intellectual disability","intellectual disability id","intellectual developmental disorder","mental retardation"],
+      clues:[
+        "A 19-year-old is brought in by his mother for a transition-planning evaluation as he ages out of school services. He's polite and easygoing throughout the interview.",
+        "Formal testing places his IQ around 65. But his mother is most concerned about daily life: he cannot manage money, gets lost easily even on familiar routes, and needs reminders for basic hygiene tasks.",
+        "He communicates in short, simple sentences and struggles to follow multi-step instructions, though he's affectionate, cooperative, and has held a part-time job bagging groceries for two years with support from a job coach.",
+        "His mother mentions he was a \"late bloomer\" — walking at 20 months, first words around age 3, and consistently behind peers academically from kindergarten onward, never catching up despite tutoring.",
+        "He has no autism diagnosis (his social reciprocity and eye contact are intact, and he enjoys interacting with new people) and no regression — his trajectory has been one of steady, if slow, gradual development since birth.",
+        "Whether this remains a relevant diagnosis depends less on the IQ number alone and more on a second piece of information: how much support he actually needs to function day to day.",
+        "Significant limitations in both intellectual functioning (reasoning, problem-solving, abstract thinking — roughly two standard deviations below average) and adaptive functioning (conceptual, social, and practical skills needed for independence), with onset during the developmental period."
+      ],
+      teach:"Diagnosis requires deficits in BOTH intellectual functioning (IQ testing) AND adaptive functioning (real-world independence skills) — IQ score alone is insufficient, and severity levels are actually defined by adaptive functioning, not IQ. Onset during the developmental period distinguishes it from acquired cognitive impairment later in life."
+    },
+    {
+      id:"hard-pyromania", date:"2026-07-02", answer:"Pyromania",
+      accept:["pyromania"],
+      clues:[
+        "A 17-year-old is referred by the juvenile court system after his third fire-related incident this year, the most recent significant enough to draw a fire engine response.",
+        "He denies any anger at the people or property affected, and there's no insurance fraud motive, no gang involvement, and no political statement attached. He says he just likes watching fires.",
+        "He describes a build of tension before setting each fire, and intense fascination and relief while watching it burn — he often stays to watch firefighters work and has shown up to unrelated fires in the neighborhood just to observe.",
+        "He's curious about fire equipment, has set off false alarms \"just to see what happens,\" and keeps a private collection of lighters and matches he describes almost reverently.",
+        "He has no conduct disorder history otherwise — no stealing, no aggression toward people or animals — and isn't manic, intoxicated, or psychotic during these episodes; his judgment is otherwise intact.",
+        "He has, on more than one occasion, deliberately and purposefully set the fires himself — this isn't curiosity-driven accidental fire-starting from younger childhood, and it isn't in response to a delusion or hallucination.",
+        "Deliberate, purposeful fire-setting on more than one occasion, with tension or arousal before the act, fascination with and attraction to fire and its situational context, and pleasure or relief when setting fires or witnessing their aftermath — not done for monetary gain, anger, political ideology, or in response to impaired judgment from another condition."
+      ],
+      teach:"Pyromania is a rare impulse-control disorder requiring exclusion of more common motives for fire-setting (revenge, profit, conduct disorder-related destructiveness, psychosis). The fascination with fire itself — not what it accomplishes — is the diagnostic core, structurally similar to kleptomania's relationship to theft."
+    },
+    {
+      id:"hard-hypersomnolence", date:"2026-07-03", answer:"Hypersomnolence Disorder",
+      accept:["hypersomnolence disorder","hypersomnia","primary hypersomnia"],
+      clues:[
+        "A 24-year-old graduate student is referred after repeatedly falling asleep during her thesis committee meetings, despite sleeping nine to ten hours a night.",
+        "She describes excessive daytime sleepiness most days for the past four months, plus difficulty fully waking up — a period of confusion and grogginess lasting up to 30 minutes after her alarm, during which she's not fully oriented.",
+        "She's tried napping, but naps don't leave her feeling refreshed. A sleep study finds no obstructive apnea and normal oxygen saturation throughout the night.",
+        "She denies any sudden muscle weakness with strong emotion, no vivid hallucinations as she's falling asleep, and no episodes of waking up unable to move — none of the more dramatic features some sleep disorders carry.",
+        "Her mood is stable, she's not on any sedating medication, and a urine tox screen is clean. Iron studies and thyroid panel are normal.",
+        "The sleep study did confirm she gets adequate total sleep time and normal sleep architecture overall — the problem isn't insufficient or disrupted sleep, just an excessive, unrefreshing quantity and persistent difficulty achieving full alertness.",
+        "Excessive sleepiness despite at least seven hours of sleep, with at least one of: recurrent lapses into sleep, a main sleep period of more than nine hours that's non-restorative, or difficulty being fully awake after abrupt awakening — occurring at least three times weekly for three months, causing impairment, without cataplexy or other narcolepsy features and not better explained by another sleep, medical, or substance-related condition."
+      ],
+      teach:"Hypersomnolence disorder is a diagnosis of exclusion: rule out narcolepsy (no cataplexy/REM-related features here), sleep apnea (normal study), and other medical/substance causes. Sleep inertia — prolonged grogginess on waking — is a distinguishing feature from simple sleep deprivation."
+    },
+    {
+      id:"hard-trichotillomania", date:"2026-07-04", answer:"Trichotillomania (Hair-Pulling Disorder)",
+      accept:["trichotillomania","hair pulling disorder","trichotillomania hair pulling disorder"],
+      clues:[
+        "A 33-year-old woman comes in wearing a headscarf she says she \"never takes off in public anymore.\" She's reluctant to explain why at first.",
+        "Eventually she discloses that she's been pulling out her own eyelashes and patches of scalp hair for about three years, especially during stressful work calls or late at night while reading.",
+        "She describes a mounting urge beforehand and a strange satisfaction in the sensation and ritual of pulling — running her fingers along strands, searching for ones that feel a particular way, before pulling them.",
+        "She's tried wigs, scarves, and false eyelashes to hide the resulting bald patches, and has turned down two work presentations rather than risk anyone noticing.",
+        "She's made repeated attempts to stop or cut back, including a wellness app and a fidget ring, without lasting success — the urge eventually wins out, usually within a few days.",
+        "There's no skin lesion driving this (unlike a dermatological itch), no delusional belief about her hair, and no broader autism-spectrum repetitive behavior pattern — this is isolated to the specific pulling behavior itself.",
+        "Recurrent hair pulling resulting in noticeable hair loss, with repeated attempts to decrease or stop the behavior, causing clinically significant distress or impairment — not attributable to another medical or dermatological condition or better explained by another mental disorder."
+      ],
+      teach:"Trichotillomania belongs to the OCD-related disorders cluster alongside excoriation disorder, sharing the tension-pull/pick-relief cycle. It's reported far more often in clinical samples of women than men, though under-recognition in men due to differing social visibility of hair loss likely affects that ratio. Concealment behaviors (wigs, styling) are common and can delay presentation for years."
+    },
+    {
+      id:"hard-sld", date:"2026-07-05", answer:"Specific Learning Disorder",
+      accept:["specific learning disorder","sld","specific learning disorder sld","learning disability","dyslexia"],
+      clues:[
+        "A bright, articulate 12-year-old is referred by her parents, baffled because she's clearly intelligent in conversation but consistently struggles in one specific area at school.",
+        "Despite strong vocabulary and reasoning skills in conversation, her reading is markedly below grade level — she reads slowly, mixes up similar-looking words, and her reading comprehension lags well behind what her listening comprehension would predict.",
+        "Standardized testing confirms her reading scores fall substantially below what would be expected for her age and overall intellectual ability, despite normal vision and adequate classroom instruction over several years.",
+        "Her math and writing skills, interestingly, are average to above-average for her grade — the difficulty is isolated specifically to reading accuracy, fluency, and comprehension.",
+        "She's been getting by through memorization and context clues, compensating well enough that teachers assumed she was simply \"not trying hard enough\" on reading assignments, leading to years of frustration before referral.",
+        "Cognitive testing rules out intellectual disability (her overall IQ is in the above-average range) and her hearing and vision are normal — this isn't a global ability issue or sensory impairment, and difficulties have been present since early elementary school.",
+        "Difficulties learning and using a specific academic skill (here, reading: inaccurate or slow, effortful word reading; difficulty with reading comprehension) for at least six months despite targeted intervention, with the skill substantially below what's expected for age, interfering significantly with academic performance, and not better explained by intellectual disability, sensory deficits, or inadequate instruction."
+      ],
+      teach:"SLD is domain-specific — note her intact math/writing — and requires ruling out intellectual disability (which would impair learning more globally) and inadequate instruction or sensory problems. Bright children with SLD frequently compensate for years, delaying diagnosis and getting mislabeled as unmotivated."
+    },
+    {
+      id:"hard-nightmare", date:"2026-07-06", answer:"Nightmare Disorder",
+      accept:["nightmare disorder","chronic nightmares"],
+      clues:[
+        "A 30-year-old comes in exhausted, describing months of disturbing dreams that wake her several nights a week, each one vivid enough that she remembers it in detail the next morning.",
+        "The dreams typically involve threats to her safety — being chased, falling, or trapped — and she wakes abruptly from them fully alert and oriented, easily recalling the entire narrative.",
+        "She has no history of trauma that would explain a PTSD-related pattern, no flashbacks or intrusive daytime memories, and the content of the dreams doesn't replay any specific real event from her life.",
+        "This has been going on nightly or near-nightly for about five months, leaving her dreading sleep and increasingly anxious about bedtime, with resulting daytime fatigue and difficulty concentrating at work.",
+        "She's not on any new medication, has no substance use, and a sleep study finds these episodes occurring during REM sleep, distinguishing them from the non-REM sleep terrors her younger brother had as a child — those involved screaming and no dream recall at all, very different from what she experiences.",
+        "Her general anxiety levels are unremarkable outside of the dreams themselves; there's no other psychiatric diagnosis driving this, and once awake she reorients quickly and fully, without confusion.",
+        "Repeated occurrences of extended, extremely dysphoric, well-remembered dreams that usually involve threats to survival or security, occurring during REM sleep with rapid orientation and full alertness on waking, causing significant distress or impairment, and not attributable to a substance, another medical condition, or better explained by another mental disorder such as PTSD."
+      ],
+      teach:"Nightmare disorder is distinguished from sleep terrors (non-REM, no recall, occurs in first third of night, common in children) by REM timing, vivid recall, and rapid full orientation on waking. It must also be differentiated from PTSD-related nightmares, which replay a specific traumatic event rather than generic threat content."
     }
   ]
 };
