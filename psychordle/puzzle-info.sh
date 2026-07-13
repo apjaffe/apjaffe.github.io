@@ -1,30 +1,47 @@
 #!/usr/bin/env bash
-# Prints everything needed to plan a new batch of puzzles:
+# Prints everything needed to plan a new batch of puzzles, across ALL puzzle
+# data files (puzzles.js plus any puzzles-batch*.js files):
 #   - the latest release date per tier (so new dates can continue from there)
 #   - every answer currently used per tier (to avoid/allow repeats)
 #   - every diagnosis in the DIAGNOSES pool NOT yet used in a given tier
 #   - overall counts
-# Usage: bash puzzle-info.sh [path-to-puzzles.js]
+# Usage: bash puzzle-info.sh [file1.js file2.js ...]
+#   With no args, auto-globs puzzles.js and puzzles-batch*.js in this script's directory.
 # No node/python required — pure bash + awk.
 
 set -u
-FILE="${1:-$(dirname "$0")/puzzles.js}"
+DIR="$(dirname "$0")"
 
-if [ ! -f "$FILE" ]; then
-  echo "File not found: $FILE"
+if [ "$#" -gt 0 ]; then
+  FILES=("$@")
+else
+  FILES=("$DIR"/puzzles.js "$DIR"/puzzles-batch*.js)
+fi
+
+EXISTING=()
+for f in "${FILES[@]}"; do
+  [ -f "$f" ] && EXISTING+=("$f")
+done
+FILES=("${EXISTING[@]}")
+
+if [ "${#FILES[@]}" -eq 0 ]; then
+  echo "No puzzle data files found."
   exit 1
 fi
 
-echo "Puzzle info for $FILE"
+echo "Puzzle info for: ${FILES[*]}"
 echo "================================================"
 echo
 
+TIER_AWK_PRELUDE='
+  /^  easy: \[/ || /^CASES\.easy\.push\(/ { t="easy" }
+  /^  medium: \[/ || /^CASES\.medium\.push\(/ { t="medium" }
+  /^  hard: \[/ || /^CASES\.hard\.push\(/ { t="hard" }
+'
+
 # ---- Latest (and earliest) date per tier ----
 echo "[Date ranges per tier]"
-awk '
-/^  easy: \[/ { t="easy" }
-/^  medium: \[/ { t="medium" }
-/^  hard: \[/ { t="hard" }
+cat "${FILES[@]}" | awk "$TIER_AWK_PRELUDE"'
 /date:"[0-9-]*"/ {
   match($0, /date:"([0-9-]*)"/, a); d=a[1]
   if (min[t]=="" || d<min[t]) min[t]=d
@@ -33,15 +50,12 @@ awk '
 END {
   for (t in max) print "  " t ": " min[t] " .. " max[t]
 }
-' "$FILE" | sort
+' | sort
 echo
 
 # ---- Puzzle counts per tier ----
 echo "[Puzzle counts per tier]"
-awk '
-/^  easy: \[/ { t="easy" }
-/^  medium: \[/ { t="medium" }
-/^  hard: \[/ { t="hard" }
+cat "${FILES[@]}" | awk "$TIER_AWK_PRELUDE"'
 /^    \{$/ { count[t]++ }
 END {
   print "  easy:   " count["easy"]
@@ -49,24 +63,21 @@ END {
   print "  hard:   " count["hard"]
   print "  total:  " (count["easy"]+count["medium"]+count["hard"])
 }
-' "$FILE"
+'
 echo
 
 # ---- All answers currently used, grouped by tier ----
 for T in easy medium hard; do
   echo "[Answers currently used — $T tier]"
-  awk -v want="$T" '
-  /^  easy: \[/ { t="easy" }
-  /^  medium: \[/ { t="medium" }
-  /^  hard: \[/ { t="hard" }
+  cat "${FILES[@]}" | awk -v want="$T" "$TIER_AWK_PRELUDE"'
   /answer:"/ { match($0, /answer:"([^"]*)"/, a); if (t==want) print "  - " a[1] }
-  ' "$FILE"
+  '
   echo
 done
 
 # ---- Full DIAGNOSES pool, and which entries are unused in each tier ----
 echo "[Full DIAGNOSES pool]"
-awk '
+cat "${FILES[@]}" | awk '
 /^const DIAGNOSES = \[/ { indiag=1; next }
 indiag && /^\];/ { indiag=0; next }
 indiag {
@@ -75,12 +86,12 @@ indiag {
     if (parts[i] != "" && parts[i] !~ /^ *$/) print "  - " parts[i]
   }
 }
-' "$FILE"
+'
 echo
 
 for T in easy medium hard; do
   echo "[DIAGNOSES pool entries NOT YET used in $T tier]"
-  awk -v want="$T" '
+  cat "${FILES[@]}" | awk -v want="$T" "$TIER_AWK_PRELUDE"'
   function norm(s,   out) {
     out = tolower(s)
     gsub(/\([^)]*\)/, "", out)
@@ -99,19 +110,19 @@ for T in easy medium hard; do
     }
     next
   }
-  /^  easy: \[/ { t="easy" }
-  /^  medium: \[/ { t="medium" }
-  /^  hard: \[/ { t="hard" }
   /answer:"/ { match($0, /answer:"([^"]*)"/, a); if (t==want) usedNorm[norm(a[1])]=1 }
   END {
     for (i=1; i<=nd; i++) {
       if (!(norm(diagList[i]) in usedNorm)) print "  - " diagList[i]
     }
   }
-  ' "$FILE"
+  '
   echo
 done
 
 echo "================================================"
 echo "Reminder: repeating a diagnosis within the same tier (with a fresh vignette/clues) is fine."
 echo "Reminder: MAX clues per tier — easy:5, medium:6, hard:7 (see MAX const in puzzles.js)."
+echo "Reminder: to add a new batch, write raw puzzle-object fragment files, then run:"
+echo "  bash build-batch.sh puzzles-batchN.js --easy f1.js ... --medium f2.js ... --hard f3.js ..."
+echo "  and add <script src=\"puzzles-batchN.js\"></script> to index.html after puzzles.js."
