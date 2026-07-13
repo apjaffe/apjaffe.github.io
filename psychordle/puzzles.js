@@ -62,8 +62,50 @@ const DIAGNOSES = [
   "Oppositional Defiant Disorder (ODD)","Conduct Disorder","Intermittent Explosive Disorder (IED)","Kleptomania","Pyromania",
   // ---- Neurocognitive ----
   "Delirium","Major Neurocognitive Disorder (Dementia)","Mild Neurocognitive Disorder",
+  "Major Neurocognitive Disorder Due to Alzheimer's Disease",
+  "Major Neurocognitive Disorder Due to Vascular Disease",
+  "Major Neurocognitive Disorder With Lewy Bodies",
+  "Major Neurocognitive Disorder Due to Parkinson's Disease",
+  "Major Neurocognitive Disorder Due to Huntington's Disease",
+  "Major Neurocognitive Disorder Due to Traumatic Brain Injury",
+  "Major Neurocognitive Disorder Due to HIV Infection",
+  "Major Neurocognitive Disorder, Frontotemporal Type",
+  // ---- Induced / due to another medical condition ----
+  "Substance/Medication-Induced Psychotic Disorder",
+  "Substance/Medication-Induced Bipolar Disorder",
+  "Substance/Medication-Induced Depressive Disorder",
+  "Substance/Medication-Induced Anxiety Disorder",
+  "Psychotic Disorder Due to Another Medical Condition",
+  "Bipolar Disorder Due to Another Medical Condition",
+  "Depressive Disorder Due to Another Medical Condition",
+  "Anxiety Disorder Due to Another Medical Condition",
+  "Catatonia Associated With Another Mental Disorder",
+  // ---- Additional substance & addictive ----
+  "Tobacco Use Disorder",
+  "Sedative, Hypnotic, or Anxiolytic Use Disorder",
+  "Hallucinogen Use Disorder",
+  "Inhalant Use Disorder",
+  "Caffeine Withdrawal",
+  // ---- Additional sleep-wake ----
+  "Obstructive Sleep Apnea Hypopnea",
+  "Non-Rapid Eye Movement Sleep Arousal Disorder, Sleepwalking Type",
+  "Non-Rapid Eye Movement Sleep Arousal Disorder, Sleep Terror Type",
+  "Restless Legs Syndrome",
+  "Circadian Rhythm Sleep-Wake Disorder",
+  // ---- Elimination ----
+  "Enuresis","Encopresis",
+  // ---- Additional neurodevelopmental ----
+  "Developmental Coordination Disorder",
+  "Stereotypic Movement Disorder",
+  "Persistent (Chronic) Motor or Vocal Tic Disorder",
+  "Provisional Tic Disorder",
+  // ---- Additional feeding & eating ----
+  "Purging Disorder","Night Eating Syndrome",
   // ---- Other ----
   "Gender Dysphoria",
+  "Prolonged Grief Disorder",
+  "Psychological Factors Affecting Other Medical Conditions",
+  "Personality Change Due to Another Medical Condition",
   "No diagnosis (culturally normative)"
 ];
 /* extra search aliases (mostly abbreviations) so entries are easy to find by typing the short form */
@@ -1007,6 +1049,7 @@ const CASES = {
         "They describe functioning but feeling empty. They get through the workday but take no real satisfaction from anything. Weekends don't help; they just feel flat.",
         "They've tried two antidepressants in the past without much benefit. They don't recall a stretch in the past several years when they felt consistently okay for more than a couple of weeks.",
         "Low energy, poor concentration, feelings of hopelessness, mildly disrupted sleep — but on careful review they haven't met full MDD criteria at any given moment. No history of mania or hypomania.",
+        "Their family describes them as \"always the practical, no-nonsense one\" — friends and coworkers don't see this as depression at all, just a naturally serious, low-key personality, which is part of why it's gone unaddressed for so long.",
         "Depressed mood more days than not for at least two years, with at least two additional depressive symptoms, never free of symptoms for more than two months at a stretch. Good insight — they just frame it as \"who I am.\""
       ],
       teach:"Often called 'double depression' when an MDE occurs on top of PDD. Key differentiator from MDD: chronicity (≥2 years), not symptom severity. Clients often experience their depression as a personality trait rather than a treatable illness."
@@ -1019,6 +1062,7 @@ const CASES = {
         "They describe relationships that start with intensity — \"I've never felt so understood, it was perfect\" — and collapse suddenly into rage or despair when the other person disappoints them.",
         "When relationships end they feel empty and \"like I don't exist.\" They've cut themselves on several occasions to \"feel something\" or relieve unbearable emotional pain.",
         "Their sense of self shifts dramatically depending on who they're with. They've changed career paths twice and adopted and dropped different identities over the past two years.",
+        "Under significant stress they sometimes feel briefly disconnected from themselves, watching their own actions from a distance — a passing quality that resolves once the crisis passes, alongside fleeting suspicion that friends are secretly fed up with them.",
         "A pervasive pattern of unstable relationships, identity disturbance, and affect dysregulation, with impulsivity: frantic efforts to avoid abandonment, unstable intense relationships, self-harm, chronic emptiness, and reactive mood. At least 5 of 9 criteria, present since early adulthood. Okay insight."
       ],
       teach:"BPD is frequently misdiagnosed as bipolar disorder. The key difference: mood shifts in BPD are reactive to interpersonal events (minutes to hours), not sustained episodes. Identity disturbance and abandonment sensitivity are defining features."
@@ -1031,6 +1075,7 @@ const CASES = {
         "They desperately want close relationships but believe others will find them boring or fundamentally flawed once they get to know them. They hold back in conversations to avoid saying something embarrassing.",
         "They've turned down two promotions because the roles would require presenting to groups. They eat lunch alone every day and have declined every social invitation from coworkers for years.",
         "Unlike someone content with solitude, this client is in ongoing pain — they yearn for connection but feel certain rejection is inevitable the moment they let people in.",
+        "A well-meaning friend set them up on a blind date last year; they spent days beforehand imagining every way it could go wrong and canceled at the last minute with a text, then spent the rest of the week replaying the cancellation with regret.",
         "A pervasive pattern (since early adulthood) of social inhibition, feelings of inadequacy, and hypersensitivity to negative evaluation — avoiding occupational activities with interpersonal contact, restraint in relationships for fear of ridicule, viewing themselves as inferior. At least 4 of 7 criteria. Limited insight."
       ],
       teach:"Avoidant PD and Social Anxiety Disorder overlap heavily, but AvPD reflects a pervasive self-concept of fundamental inadequacy — not just situational fear. Clients want connection intensely; that yearning distinguishes them from schizoid presentation."
@@ -1043,6 +1088,7 @@ const CASES = {
         "Every room except the bathroom is packed floor-to-ceiling with newspapers, boxes, and miscellaneous objects — the kitchen and living room are functionally inaccessible.",
         "The client becomes distressed when asked about discarding anything and can articulate a reason to keep every object. The thought of throwing away a ten-year-old magazine causes genuine anxiety.",
         "They deny it's a problem: \"I know where everything is.\" But they haven't had guests in twelve years and their children report food safety concerns and fire hazards.",
+        "They've also continued buying items at yard sales and thrift stores despite having nowhere to put them, saying each purchase \"might come in handy someday\" — the accumulation isn't limited to keeping what they already have.",
         "Persistent difficulty discarding possessions regardless of actual value, driven by perceived need to save them and distress when discarding, resulting in clutter that compromises the living space. Limited insight — they don't experience the hoarding as a problem."
       ],
       teach:"Hoarding disorder is distinct from OCD: the relationship to possessions is ego-syntonic (the client sees value in keeping, not a senseless compulsion to resist). Insight ranges from good to absent — limited or absent insight is common and affects treatment."
@@ -1054,6 +1100,7 @@ const CASES = {
         "A 44-year-old has seen seven specialists over three years for persistent, severe abdominal pain and fatigue. Extensive workup — endoscopy, imaging, bloodwork — has been consistently normal.",
         "They check their symptoms online daily, keep a detailed pain diary, and bring thick folders of medical records to every appointment. They're convinced something serious is being missed.",
         "They've quit their job because of the pain, and family life has organized around managing their symptoms. Health is their primary topic of conversation.",
+        "They've switched primary care doctors three times in the past year, each time because the previous one \"wasn't taking things seriously enough,\" and now spends several hours most evenings researching symptom clusters online.",
         "They're not fabricating — the pain is real and distressing. But reassurance from physicians provides only brief relief before the worry returns, and their response to health information is disproportionate.",
         "One or more distressing somatic symptoms plus excessive thoughts, feelings, or behaviors: disproportionate worry, persistently high health anxiety, or excessive time devoted to symptoms — lasting more than 6 months. Insight is limited — they believe a physical cause is being missed."
       ],
@@ -1066,6 +1113,7 @@ const CASES = {
         "A 38-year-old comes in wanting to \"get control of my eating.\" They've been on and off diets for twenty years and feel disgusted with themselves.",
         "They describe episodes — roughly twice a week — of eating a very large amount in under two hours, always in secret: finishing a full pizza, a pint of ice cream, and a bag of chips in one sitting.",
         "During these episodes they feel unable to stop, eat much faster than usual, and continue well past fullness. Afterward they feel intensely ashamed and depressed.",
+        "They've started keeping empty wrappers in their car rather than the kitchen trash so their partner won't notice, and recall the same pattern surfacing periodically since their teenage years, though it's intensified over the last several months.",
         "Critically, there is no compensatory behavior — no purging, excessive exercise, or fasting. They attribute their weight to \"no willpower,\" which is not the correct frame.",
         "Recurrent binge episodes (at least once weekly for 3 months) marked by loss of control and significant distress — without the compensatory behaviors that define bulimia. Insight is okay; shame prevents disclosure."
       ],
@@ -1078,6 +1126,7 @@ const CASES = {
         "A 42-year-old attorney comes in at the suggestion of their second wife, who says they have \"no empathy.\" The client agrees to come only after framing therapy as a way to address \"people who don't appreciate them.\"",
         "They describe colleagues as incompetent and subordinates as lucky to work for them. They're furious about being passed over for partnership — \"obviously political; the committee is threatened by me.\"",
         "They expect special treatment from staff, expect deference in relationships, and become coldly contemptuous when slighted. They've ended friendships abruptly when people \"stopped showing up\" for them.",
+        "At a recent dinner, when a friend shared exciting news about a promotion, the client redirected the conversation within a minute to their own recent accomplishments, seemingly without noticing the shift.",
         "Exploring relationships reveals they struggle to recognize others' feelings unless those others are serving a function for them. Their wife's complaints about loneliness are genuinely baffling to them.",
         "A pervasive pattern (since early adulthood): grandiose self-importance, preoccupation with success and power, sense of entitlement, interpersonally exploitative, lack of empathy, envy, and arrogance. At least 5 of 9 criteria. Limited insight."
       ],
@@ -1089,6 +1138,7 @@ const CASES = {
       clues:[
         "A 31-year-old survivor of childhood abuse describes flashbacks that go beyond re-experiencing — during episodes, they feel completely detached from their own body, like watching themselves from across the room.",
         "Throughout the day they experience periods of feeling unreal, as if they're in a dream. Long stretches of time sometimes pass with no clear memory of what happened.",
+        "A coworker recently found them standing at their desk for several minutes, unresponsive to their name being called, only \"coming back\" when touched on the shoulder — an episode they have no memory of afterward.",
         "They meet full PTSD criteria: intrusive memories, nightmares, avoidance, negative mood changes, and hyperarousal — present for years following prolonged early-life trauma.",
         "The depersonalization and derealization are not explained by substances, a medical condition, or another dissociative disorder. They emerge around trauma reminders but also occur without obvious trigger.",
         "Full PTSD criteria plus persistent or recurrent depersonalization (detachment from one's mental processes or body) or derealization (sense of unreality of surroundings). Insight is okay — they understand the connection to their history."
@@ -1102,6 +1152,7 @@ const CASES = {
         "A 29-year-old is brought in by their roommate after a week of not sleeping, apparent conversations with people who aren't there, and urgent notes about being monitored by the government.",
         "On exam they're expansive, speak rapidly, and describe a special mission only they can perceive. They report hearing voices that comment on their actions and confirm their importance.",
         "After two weeks of antipsychotics, the elevated mood and pressured speech resolve — but the voices and persecutory beliefs persist for several more weeks in the absence of prominent mood symptoms.",
+        "Between episodes, they're able to hold a part-time job restocking shelves, though coworkers note they sometimes mutter responses to something unheard even on ordinary, uneventful days.",
         "Chart review shows two prior episodes: once a depressive episode with mood-congruent delusions, and once a manic-like episode. Between episodes they function marginally with residual odd thinking.",
         "An uninterrupted period includes both a major mood episode and core psychotic symptoms. Crucially, delusions or hallucinations were present for at least two weeks without prominent mood symptoms — this is the key distinction. Insight is very limited."
       ],
@@ -1114,6 +1165,7 @@ const CASES = {
         "A 25-year-old comes in five days after a serious car accident in which they witnessed a passenger badly injured. \"I can't stop seeing it. I feel like I'm going crazy.\"",
         "They describe intrusive images of the crash forcing themselves into awareness, a sense of reliving it when they close their eyes, and feeling detached from their own body since it happened.",
         "They've been unable to drive, avoid any roads or news coverage about accidents, can't sleep, and have had two panic responses to sudden loud noises at work.",
+        "They're staying with their parents since the accident because they don't feel safe being alone, and have started leaving lights on all night, something they've never needed before.",
         "They know what they're experiencing is a response to the trauma — insight is intact — but the symptoms feel uncontrollable. It's been five days and the intensity hasn't diminished.",
         "Following a traumatic event: at least 9 of 14 symptoms across intrusion, negative mood, dissociation, avoidance, and arousal clusters — lasting between 3 days and 1 month, with significant distress or impairment."
       ],
