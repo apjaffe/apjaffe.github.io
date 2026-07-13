@@ -62,8 +62,50 @@ const DIAGNOSES = [
   "Oppositional Defiant Disorder (ODD)","Conduct Disorder","Intermittent Explosive Disorder (IED)","Kleptomania","Pyromania",
   // ---- Neurocognitive ----
   "Delirium","Major Neurocognitive Disorder (Dementia)","Mild Neurocognitive Disorder",
+  "Major Neurocognitive Disorder Due to Alzheimer's Disease",
+  "Major Neurocognitive Disorder Due to Vascular Disease",
+  "Major Neurocognitive Disorder With Lewy Bodies",
+  "Major Neurocognitive Disorder Due to Parkinson's Disease",
+  "Major Neurocognitive Disorder Due to Huntington's Disease",
+  "Major Neurocognitive Disorder Due to Traumatic Brain Injury",
+  "Major Neurocognitive Disorder Due to HIV Infection",
+  "Major Neurocognitive Disorder, Frontotemporal Type",
+  // ---- Induced / due to another medical condition ----
+  "Substance/Medication-Induced Psychotic Disorder",
+  "Substance/Medication-Induced Bipolar Disorder",
+  "Substance/Medication-Induced Depressive Disorder",
+  "Substance/Medication-Induced Anxiety Disorder",
+  "Psychotic Disorder Due to Another Medical Condition",
+  "Bipolar Disorder Due to Another Medical Condition",
+  "Depressive Disorder Due to Another Medical Condition",
+  "Anxiety Disorder Due to Another Medical Condition",
+  "Catatonia Associated With Another Mental Disorder",
+  // ---- Additional substance & addictive ----
+  "Tobacco Use Disorder",
+  "Sedative, Hypnotic, or Anxiolytic Use Disorder",
+  "Hallucinogen Use Disorder",
+  "Inhalant Use Disorder",
+  "Caffeine Withdrawal",
+  // ---- Additional sleep-wake ----
+  "Obstructive Sleep Apnea Hypopnea",
+  "Non-Rapid Eye Movement Sleep Arousal Disorder, Sleepwalking Type",
+  "Non-Rapid Eye Movement Sleep Arousal Disorder, Sleep Terror Type",
+  "Restless Legs Syndrome",
+  "Circadian Rhythm Sleep-Wake Disorder",
+  // ---- Elimination ----
+  "Enuresis","Encopresis",
+  // ---- Additional neurodevelopmental ----
+  "Developmental Coordination Disorder",
+  "Stereotypic Movement Disorder",
+  "Persistent (Chronic) Motor or Vocal Tic Disorder",
+  "Provisional Tic Disorder",
+  // ---- Additional feeding & eating ----
+  "Purging Disorder","Night Eating Syndrome",
   // ---- Other ----
   "Gender Dysphoria",
+  "Prolonged Grief Disorder",
+  "Psychological Factors Affecting Other Medical Conditions",
+  "Personality Change Due to Another Medical Condition",
   "No diagnosis (culturally normative)"
 ];
 /* extra search aliases (mostly abbreviations) so entries are easy to find by typing the short form */
